@@ -32,8 +32,9 @@ public class MainMenuScreen implements Screen {
 
 			Texture img = new Texture("Capa.jpg");
 			game.batch.begin();
-			game.batch.draw(img,0,0);
+			game.batch.draw(img, 0, 0);
 			game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
+			game.batch.draw(new Texture("dragao.png"), 0, 0);
 			game.batch.end();
 
 			if (Gdx.input.isTouched()) {
