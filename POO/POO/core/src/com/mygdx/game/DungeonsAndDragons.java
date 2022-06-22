@@ -12,6 +12,7 @@ public class DungeonsAndDragons extends Game {
 	public SpriteBatch batch;
 	public BitmapFont font;
 
+	@Override
 	public void create() {
 		batch = new SpriteBatch();
 		font = new BitmapFont(); // use libGDX's default Arial font
@@ -22,6 +23,7 @@ public class DungeonsAndDragons extends Game {
 		super.render(); // important!
 	}
 
+	@Override
 	public void dispose() {
 		batch.dispose();
 		font.dispose();
