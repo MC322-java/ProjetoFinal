@@ -73,11 +73,11 @@ public class MapScreen implements Screen {
 				game.batch.draw(parede, j * squareSize, i * squareSize, squareSize, squareSize);
 			}
 		}
-		Texture chao = new Texture("dragao.png");
+		Texture chao = new Texture("chao.jpg");
 //		game.batch.draw(chao, squareSize*4, squareSize*4, squareSize, squareSize);
 //		game.batch.begin();
-		for (int i = 0; i < Gdx.graphics.getHeight() / squareSize; i++) {
-			for (int j = 0; j < Gdx.graphics.getWidth() / squareSize; j++) {
+		for (int i = 3; i < Math.min(27, Gdx.graphics.getHeight() / squareSize); i++) {
+			for (int j = 5; j < Math.min(48, Gdx.graphics.getWidth() / squareSize); j++) {
 				game.batch.draw(chao, j * squareSize, i * squareSize, squareSize, squareSize);
 			}
 		}
