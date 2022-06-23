@@ -24,11 +24,6 @@ public class MainMenuScreen implements Screen {
 //			game.batch = new SpriteBatch();
 //			camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		}
-
-		@Override
-		public void show() {
-			// TODO Auto-generated method stub
-		}
 		
 		@Override
 		public void render(float delta) {
@@ -49,35 +44,31 @@ public class MainMenuScreen implements Screen {
 
 		@Override
 		public void resize(int width, int height) {
-			// TODO Auto-generated method stub
 //			viewport.update(width, height);
 		}
 
-
 		@Override
-		public void pause() {
-			// TODO Auto-generated method stub
-			
-		}
-
-
-		@Override
-		public void resume() {
-			// TODO Auto-generated method stub
+		public void show() {
 			
 		}
 
 		@Override
 		public void hide() {
-			// TODO Auto-generated method stub
 			
 		}
-
+		
+		@Override
+		public void pause() {
+			
+		}
+		
+		@Override
+		public void resume() {
+			
+		}
 
 		@Override
 		public void dispose() {
-			// TODO Auto-generated method stub
 			
 		}
-
-	}
+}

@@ -29,8 +29,29 @@ public class Tabuleiro {
 		    {'p', ' ', ' ', ' ', ' ', ' ', 'p', ' ', 'p', ' ', 'p', 'p', 'p', 'p', 'p', ' ', 'p', ' ', 'p', 'p', 'p', 'p', 'p', ' ', 'p'},
 		    {'p', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'p', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'p'},
 		    {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'}
-		    };
+	};
+	
+	public int getTamanho() {
+		return tamanho;
+	}
+	
+	public void setTamanho(int tamanho) {
+		this.tamanho = tamanho;
+	}
+	
 	public Casa[][] getCasas() {
 		return casas;
+	}
+	
+	public void setCasas(Casa[][] casas) {
+		this.casas = casas;
+	}
+	
+	public char[][] getBoard() {
+		return board;
+	}
+	
+	public void setBoard(char[][] board) {
+		this.board = board;
 	}
 }
