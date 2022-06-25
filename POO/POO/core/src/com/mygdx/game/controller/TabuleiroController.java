@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 public class TabuleiroController {
 	
 	public static Tabuleiro tabuleiro = new Tabuleiro();
+	public static final int SQUARE_SIZE = 20;
 	
 	public static TabuleiroController getInstance() {
 		return new TabuleiroController();

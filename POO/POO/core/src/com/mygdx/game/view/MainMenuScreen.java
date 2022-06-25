@@ -37,7 +37,7 @@ public class MainMenuScreen implements Screen {
 //			game.batch.draw(new Texture("dragao.png"), 0, 0);
 			game.batch.end();
 			if (Gdx.input.isTouched()) {
-				game.setScreen(new MapScreen(game));
+				game.setScreen(new SelectionScreen(game));
 				dispose();
 			}
 		}

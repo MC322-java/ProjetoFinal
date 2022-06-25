@@ -16,6 +16,7 @@ import com.mygdx.game.DungeonsAndDragons;
 import com.mygdx.game.controller.EscritaController;
 import com.mygdx.game.controller.PersonagemController;
 import com.mygdx.game.controller.TabuleiroController;
+import com.mygdx.game.model.entities.Personagem;
 import com.mygdx.game.model.util.Util;
 ;
 
@@ -24,23 +25,23 @@ public class MapScreen implements Screen {
 	
 	public final DungeonsAndDragons game;
 	
-	OrthographicCamera camera;
-	Texture fundo, mago, guerreiro;
-	Rectangle player;
+	private OrthographicCamera camera;
+	private Texture fundo, player;
+//	private Rectangle player;
 	public static int squareSize;
 	float deltaMovement = 0;
 	
 	
 	
-	public MapScreen(final DungeonsAndDragons game) {
+	public MapScreen(final DungeonsAndDragons game, Personagem p) {
 		this.game = game;
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1060, 580);
 		fundo = new Texture("TelaFundo.png");
-		mago = new Texture("mago.png");
-		guerreiro = new Texture("Guerreiro.png");
 		squareSize = 20;
-		
+		PersonagemController.p = p;
+//		TabuleiroController.tabuleiro.getCasas()[p.getLinha()][p.getColuna()].setComponente(p);
+		player = p.getImg();
 //		player = new Rectangle();
 //		player.x = 15*squareSize; // center the bucket horizontally
 //		player.y = 25*squareSize; // bottom left corner of the bucket is 20 pixels above
@@ -56,7 +57,8 @@ public class MapScreen implements Screen {
 	    game.batch.begin();
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.draw(fundo, 0, 0, 1060, 580);
-		game.batch.draw(PersonagemController.p.getImg(), 4 * squareSize, 18.5f * squareSize, 6 * squareSize, 6 * squareSize);
+//		game.batch.draw(PersonagemController.p.getImg(), 4 * squareSize, 18.5f * squareSize, 6 * squareSize, 6 * squareSize);
+		game.batch.draw(player, 4 * squareSize, 18.5f * squareSize, 6 * squareSize, 6 * squareSize);
 //		int dadoPlayer = Util.jogaDado();
 		TabuleiroController.drawMap(this, squareSize);
 		if (Gdx.input.isKeyPressed(Keys.A)) {

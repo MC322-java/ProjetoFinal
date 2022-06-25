@@ -11,7 +11,7 @@ import com.mygdx.game.view.MapScreen;
 
 public class PersonagemController {
 	
-	public static Personagem p = new Guerreiro(1, 1, 100, 10, 10);
+	public static Personagem p;
 	
 	PersonagemController() {
 		TabuleiroController.tabuleiro.getCasas()[p.getLinha()][p.getColuna()].setComponente(p);
@@ -41,6 +41,10 @@ public class PersonagemController {
 		p.setLinha(novaLinha);
 		p.setColuna(novaColuna);
 		TabuleiroController.tabuleiro.getCasas()[p.getLinha()][p.getColuna()].setComponente(p);
+	}
+	
+	public static void setP(Personagem p) {
+		PersonagemController.p = p;
 	}
 	
 	public static void atacar() {

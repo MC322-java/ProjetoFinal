@@ -33,7 +33,7 @@ public class CharacterScreen implements Screen {
 		game.batch.end();
 
 		if (Gdx.input.isTouched()) {
-			game.setScreen(new MapScreen(game));
+//			game.setScreen(new MapScreen(game));
 			dispose();
 		}
 	}
