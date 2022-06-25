@@ -5,29 +5,25 @@ import com.mygdx.game.view.MapScreen;
 import com.badlogic.gdx.graphics.Texture;
 
 public class TabuleiroController {
-	Tabuleiro tabuleiro = new Tabuleiro();
 	
-	TabuleiroController() {
-		
-	}
+	public static Tabuleiro tabuleiro = new Tabuleiro();
 	
 	public static TabuleiroController getInstance() {
 		return new TabuleiroController();
 	}
 	
-	public void drawMap(MapScreen mapScreen, int squareSize) {
+	public static void drawMap(MapScreen mapScreen, int squareSize) {
 		for (int i = 0; i < 25; i++) {
 			for (int j = 0; j < 25; j++) {
-				if (this.tabuleiro.getBoard()[i][j] == 'p') {
-					plot(mapScreen, "parede", i, j, squareSize);
-				}
+				if (tabuleiro.getCasas()[i][j].getComponente() == null)
+					continue;
+				
+				plot(mapScreen, tabuleiro.getCasas()[i][j].getComponente().getImg(), i, j, squareSize, squareSize);
 			}
 		}
-		plot(mapScreen, "mago", 1, 1, squareSize);
-		plot(mapScreen, "dragao", 3, 1, squareSize);
 	}
 	
-	private void plot(MapScreen mapScreen, String img, int linha, int coluna, int squareSize) {
-		mapScreen.game.batch.draw(new Texture(img + ".png"), (coluna + 14) * squareSize, (26 - linha) * squareSize, squareSize, squareSize);
+	public static void plot(MapScreen mapScreen, Texture img, int linha, int coluna, int squareSize, int tamanho) {
+		mapScreen.game.batch.draw(img, (coluna + 14) * squareSize, (26 - linha) * squareSize, tamanho, tamanho);
 	}
 }

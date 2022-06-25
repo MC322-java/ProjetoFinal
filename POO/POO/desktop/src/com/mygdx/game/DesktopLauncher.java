@@ -10,7 +10,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("Dungeons & Dragons");
-		config.setWindowedMode(1200, 650);
+		config.setWindowedMode(1060, 580);
 		new Lwjgl3Application(new DungeonsAndDragons(), config);
 	}
 }

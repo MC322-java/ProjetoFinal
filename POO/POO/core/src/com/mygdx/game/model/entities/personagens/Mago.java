@@ -2,6 +2,8 @@ package com.mygdx.game.model.entities.personagens;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.controller.TabuleiroController;
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Dragao;
 import com.mygdx.game.model.entities.Personagem;
@@ -10,8 +12,18 @@ import com.mygdx.game.model.util.*;
 
 public class Mago extends Personagem {
 	
-	Mago() {
+	public Mago() {
 		super();
+		this.setImg(new Texture("mago.png"));
+	}
+	
+	public Mago(int linha, int coluna, int vida, int range, int dano) {
+		setLinha(linha);
+		setColuna(coluna);
+		setVida(vida);
+		setRange(range);
+		setDano(dano);
+		this.setImg(new Texture("mago.png"));
 	}
 
 	@Override
@@ -26,14 +38,14 @@ public class Mago extends Personagem {
 		ArrayList<Dragao> dragoes = new ArrayList<Dragao>();
 		for (int i = linha - range / 2; i < linha + range / 2; i++) {
 			for (int j = coluna - range / 2; j < coluna + range / 2; j++) {
-				for (Componente c : tabuleiro.getCasas()[i][j].getComponentes()) {
-					if (Util.isInstance(c, (new Dragao()).getClass())) {
-						if (dadoPlayer >= dadoDragoes) {
-							dragoes.add((Dragao) c);
-						} else {
-							danoRecebido = Math.max(danoRecebido, ((Dragao) c).getDano());
-						}
-					}
+				if (i != this.linha && j != this.coluna)
+					continue;
+				Componente c = tabuleiro.getCasas()[i][j].getComponente();
+				if (Util.isInstance(c, (new Dragao()).getClass())) {
+					if (dadoPlayer >= dadoDragoes)
+						dragoes.add((Dragao) c);
+					else
+						danoRecebido = Math.max(danoRecebido, ((Dragao) c).getDano());
 				}
 			}
 		}

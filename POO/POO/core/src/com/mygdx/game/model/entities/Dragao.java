@@ -1,14 +1,20 @@
 package com.mygdx.game.model.entities;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.model.util.Util;
+
 public class Dragao extends Componente {
 	private int vida;
 	private int dano;
 	
-	public Dragao() {}
+	public Dragao() {
+		this.setImg(new Texture("Dragoes/" + ((Util.jogaDado() % 4) + 1) + ".png"));
+	}
 	
 	public Dragao(int vida, int dano) {
 		setVida(vida);
 		setDano(dano);
+		this.setImg(new Texture("Dragoes/" + ((Util.jogaDado() % 4) + 1) + ".png"));
 	}
 	// fazer um metodo pra gerar a pontuacao recebida pelo player ao morrer
 	

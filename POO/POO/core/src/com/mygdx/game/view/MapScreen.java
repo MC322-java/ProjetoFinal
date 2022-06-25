@@ -1,16 +1,23 @@
 package com.mygdx.game.view;
 
+
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.DungeonsAndDragons;
+import com.mygdx.game.controller.EscritaController;
+import com.mygdx.game.controller.PersonagemController;
 import com.mygdx.game.controller.TabuleiroController;
+import com.mygdx.game.model.util.Util;
+;
 
 public class MapScreen implements Screen {
 
@@ -18,88 +25,94 @@ public class MapScreen implements Screen {
 	public final DungeonsAndDragons game;
 	
 	OrthographicCamera camera;
+	Texture fundo, mago, guerreiro;
+	Rectangle player;
+	public static int squareSize;
+	float deltaMovement = 0;
+	
+	
 	
 	public MapScreen(final DungeonsAndDragons game) {
 		this.game = game;
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 800, 450);
-//		camera.setToOrtho(false, Gdx.graphics.getHeight(), Gdx.graphics.getWidth());
+		camera.setToOrtho(false, 1060, 580);
+		fundo = new Texture("TelaFundo.png");
+		mago = new Texture("mago.png");
+		guerreiro = new Texture("Guerreiro.png");
+		squareSize = 20;
+		
+//		player = new Rectangle();
+//		player.x = 15*squareSize; // center the bucket horizontally
+//		player.y = 25*squareSize; // bottom left corner of the bucket is 20 pixels above
+//						// the bottom screen edge
+//		player.width = squareSize;
+//		player.height = squareSize;
 	};
 	
 	@Override
-	public void show() {
-		// TODO Auto-generated method stub
+	public void render(float delta) {
+		ScreenUtils.clear(0, 0, 0.2f, 1);
+	    camera.update();
+	    game.batch.begin();
+		game.batch.setProjectionMatrix(camera.combined);
+		game.batch.draw(fundo, 0, 0, 1060, 580);
+		game.batch.draw(PersonagemController.p.getImg(), 4 * squareSize, 18.5f * squareSize, 6 * squareSize, 6 * squareSize);
+//		int dadoPlayer = Util.jogaDado();
+		TabuleiroController.drawMap(this, squareSize);
+		if (Gdx.input.isKeyPressed(Keys.A)) {
+			EscritaController.printa(this, "Voce recebeu 100 de dano");
+//			PersonagemController.atacar();
+		}
+		if (deltaMovement >= 5) {
+			deltaMovement = 0;
+			if (Gdx.input.isKeyPressed(Keys.LEFT))
+				PersonagemController.move(PersonagemController.p.getLinha(), PersonagemController.p.getColuna() - 1);
+			if (Gdx.input.isKeyPressed(Keys.RIGHT))
+				PersonagemController.move(PersonagemController.p.getLinha(), PersonagemController.p.getColuna() + 1);
+			if (Gdx.input.isKeyPressed(Keys.UP))
+				PersonagemController.move(PersonagemController.p.getLinha() - 1, PersonagemController.p.getColuna());
+			if (Gdx.input.isKeyPressed(Keys.DOWN))
+				PersonagemController.move(PersonagemController.p.getLinha() + 1, PersonagemController.p.getColuna());
+		}
+		deltaMovement++;
+		for (int i = 0; i < 8; i++) {
+			if (PersonagemController.p.getChaves()[i] != null) {
+				game.batch.draw(PersonagemController.p.getChaves()[i].getImg(), (2 + i) * squareSize, 13 * squareSize, squareSize, squareSize);
+			}
+		}
+		camera.update();
+		game.batch.end();
+		dispose();
+	}
 
+	@Override
+	public void show() {
+//		camera.update();
+//		game.batch.begin();
+//		game.batch.draw(new Texture("TelaFundo.png"), 0, 0, 1060, 580);
+//		game.batch.draw(new Texture("mago.png"), 4 * 20, 18 * 20, 6 * 20, 6 * 20);
+//		game.batch.end();
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 	}
 
-	@Override
-	public void render(float delta) {
-		// TODO Auto-generated method stub
-		ScreenUtils.clear(0, 0, 0.2f, 1);
-		int squareSize = 15;
-	    camera.update();
-		game.batch.setProjectionMatrix(camera.combined);
-
-		Texture parede = new Texture("parede.png");
-		game.batch.begin();
-		for (int i = 0; i < Gdx.graphics.getHeight() / squareSize; i++) {
-			for (int j = 0; j < Gdx.graphics.getWidth() / squareSize; j++) {
-				game.batch.draw(parede, j * squareSize, i * squareSize, squareSize, squareSize);
-			}
-		}
-		Texture chao = new Texture("chao.png");
-////		game.batch.draw(chao, squareSize*4, squareSize*4, squareSize, squareSize);
-////		game.batch.begin();
-		for (int i = 2; i < Math.min(27, Gdx.graphics.getHeight() / squareSize); i++) {
-			for (int j = 14; j < Math.min(39, Gdx.graphics.getWidth() / squareSize); j++) {
-				game.batch.draw(chao, j * squareSize, i * squareSize, squareSize, squareSize);
-			}
-		}
-		// Initial position == (2, 14)
-//		Skin skin = new Skin();
-//		TextButton button = new TextButton("Close game", skin);
-//		button.addListener (new ChangeListener() {
-//		    // This method is called whenever the actor is clicked. We override its behavior here.
-//		    @Override
-//		    public void changed(ChangeEvent event, Actor actor) {
-//		        // This is where we remove the window.
-//		        dispose();
-//		    }
-//		});
-		TabuleiroController.getInstance().drawMap(this, squareSize);
-		game.batch.end();
-//		dispose();
-		if (Gdx.input.isTouched()) {
-			dispose();
-		}
-	}
-
+	
 }

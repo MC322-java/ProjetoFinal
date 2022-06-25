@@ -1,10 +1,15 @@
 package com.mygdx.game.model.entities;
 
+import java.util.ArrayList;
+
+import com.mygdx.game.model.entities.objetos.Chave;
+
 public abstract class Personagem extends Componente {
 	protected int vida;
 	// protected int estamina;
 	protected int range;
 	protected int dano; // talvez mudar o jeito que o dano eh calculado
+	protected Chave chaves[] = new Chave[8];
 	
 	protected Personagem() {
 		super();
@@ -15,8 +20,17 @@ public abstract class Personagem extends Componente {
 		setVida(vida);
 		setRange(range);
 		setDano(dano);
-		
 	}
+	
+	public void addChave(int idx) {
+		chaves[idx] = new Chave(idx);
+	}
+	
+	public void removeChave(int idx) {
+		chaves[idx] = null;
+	}
+	
+	public abstract void atacar(Tabuleiro tabuleiro);
 	
 	public int getVida() {
 		return vida;
@@ -42,5 +56,12 @@ public abstract class Personagem extends Componente {
 		this.dano = dano;
 	}
 
-	public abstract void atacar(Tabuleiro tabuleiro);
+	public Chave[] getChaves() {
+		return chaves;
+	}
+
+	public void setChaves(Chave[] chaves) {
+		this.chaves = chaves;
+	}
+	
 }

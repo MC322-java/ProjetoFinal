@@ -12,14 +12,15 @@ import com.mygdx.game.DungeonsAndDragons;
 public class MainMenuScreen implements Screen {
 
 		final DungeonsAndDragons game;
-
+		Texture capa;
 		OrthographicCamera camera;
 		Viewport viewport;
 
 		public MainMenuScreen(final DungeonsAndDragons game) {
 			this.game = game;
 			camera = new OrthographicCamera();
-			camera.setToOrtho(false, 800, 480);
+			camera.setToOrtho(false, 1060,580);
+			capa = new Texture("CapaLetra.jpg");
 //			viewport = new ExtendViewport(1000, 1000, camera); // we create a new Viewport with our camera and we will display our world 300 x 250 units
 //			game.batch = new SpriteBatch();
 //			camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -30,10 +31,9 @@ public class MainMenuScreen implements Screen {
 			ScreenUtils.clear(0, 0, 0.2f, 1);
 			camera.update();
 			game.batch.setProjectionMatrix(camera.combined);
-			Texture img = new Texture("Capa.jpg");
 			game.batch.begin();
-			game.batch.draw(img, 0, 0, 800, 480);
-			game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
+			game.batch.draw(capa, 0, 0, 1060 ,580);
+//			game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
 //			game.batch.draw(new Texture("dragao.png"), 0, 0);
 			game.batch.end();
 			if (Gdx.input.isTouched()) {
@@ -49,26 +49,22 @@ public class MainMenuScreen implements Screen {
 
 		@Override
 		public void show() {
-			
+
 		}
 
 		@Override
 		public void hide() {
-			
 		}
 		
 		@Override
 		public void pause() {
-			
 		}
 		
 		@Override
 		public void resume() {
-			
 		}
 
 		@Override
 		public void dispose() {
-			
 		}
 }

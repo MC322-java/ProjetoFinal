@@ -4,16 +4,11 @@ import java.util.*;
 
 public class Casa {
 	private Tabuleiro tabuleiro;
-	private ArrayList<Componente> componentes;
+	private Componente componente;
 	
 	Casa(Tabuleiro tabuleiro, Componente c) {
 		this.setTabuleiro(tabuleiro);
-		this.componentes = new ArrayList<Componente>();
-		componentes.add(c);
-	}
-
-	public void adicionaComponente(Componente c) {
-		componentes.add(c);
+		this.setComponente(c);
 	}
 	
 	// Getters e Setters
@@ -26,11 +21,11 @@ public class Casa {
 		this.tabuleiro = tabuleiro;
 	}
 	
-	public ArrayList<Componente> getComponentes() {
-		return componentes;
+	public Componente getComponente() {
+		return componente;
 	}
 
-	public void setComponentes(ArrayList<Componente> componentes) {
-		this.componentes = componentes;
+	public void setComponente(Componente componente) {
+		this.componente = componente;
 	}
 }

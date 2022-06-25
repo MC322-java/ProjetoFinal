@@ -11,4 +11,8 @@ public abstract class Util {
 	public static int jogaDado() {
 		return MathUtils.random.nextInt(20) + 1;
 	}
+
+	public static boolean posicaoValida(int novaLinha, int novaColuna) {
+		return 1 <= novaLinha && novaLinha <= 23 && 1 <= novaColuna && novaColuna <= 23;
+	}
 }
