@@ -6,7 +6,7 @@
 
 
 # Equipe
-* Andreas Cisi Ramos - 246932
+* `Andreas Cisi Ramos` - `246932`
 * `<nome completo>` - `<RA>`
 
 # Arquivo Executável do Jogo
@@ -26,9 +26,7 @@
 
 ## Diagrama Geral da Arquitetura do Jogo
 
-## Diagrama de Classes
 
-## Diagrama de Excessões
 
 
 
