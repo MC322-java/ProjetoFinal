@@ -3,6 +3,7 @@ package com.mygdx.game.model.entities.personagens;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.controller.TabuleiroController;
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Dragao;
 import com.mygdx.game.model.entities.Personagem;
@@ -25,7 +26,7 @@ public class Guerreiro extends Personagem {
 	}
 
 	@Override
-	public void atacar(Tabuleiro tabuleiro) {
+	public int atacar() {
 		// fazer um ataque em numa area de acordo com a arma equipada (a arma altera o range e o dano)
 		
 		// ataque numa area range x range
@@ -38,7 +39,7 @@ public class Guerreiro extends Personagem {
 			for (int j = this.coluna - range / 2; j < this.coluna + range / 2; j++) {
 				if (i != this.linha && j != this.coluna)
 					continue;
-				Componente c = tabuleiro.getCasas()[i][j].getComponente();
+				Componente c = TabuleiroController.tabuleiro.getCasas()[i][j].getComponente();
 				if (Util.isInstance(c, (new Dragao()).getClass())) {
 					if (dadoPlayer >= dadoDragoes)
 						dragoes.add((Dragao) c);
@@ -52,5 +53,6 @@ public class Guerreiro extends Personagem {
 			d.setVida(d.getVida() - dano / dragoes.size());
 			// OLHAR SE O DRAGAO MORREU
 		}
+		return 1;
 	}	
 }

@@ -45,7 +45,7 @@ public class Tabuleiro {
 				if (board[i][j] == "p")
 					getCasas()[i][j].setComponente(new Componente(new Texture("parede.png")));
 				else if (board[i][j] == "D")
-					getCasas()[i][j].setComponente(new Dragao());
+					getCasas()[i][j].setComponente(new Dragao(i, j, 1, 1));
 				else if (board[i][j].charAt(0) == 'B')
 					getCasas()[i][j].setComponente(new Porta(Integer.parseInt(board[i][j].substring(1, 2))));
 				else if (board[i][j] == "C")

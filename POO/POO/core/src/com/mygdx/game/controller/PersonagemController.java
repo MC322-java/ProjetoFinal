@@ -47,7 +47,7 @@ public class PersonagemController {
 		PersonagemController.p = p;
 	}
 	
-	public static void atacar() {
-		p.atacar(TabuleiroController.tabuleiro);
+	public static int atacar() {
+		return p.atacar();
 	}
 }

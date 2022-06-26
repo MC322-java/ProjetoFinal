@@ -1,5 +1,6 @@
 package com.mygdx.game.controller;
 
+import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Tabuleiro;
 import com.mygdx.game.view.MapScreen;
 import com.badlogic.gdx.graphics.Texture;
@@ -26,5 +27,10 @@ public class TabuleiroController {
 	
 	public static void plot(MapScreen mapScreen, Texture img, int linha, int coluna, int squareSize, int tamanho) {
 		mapScreen.game.batch.draw(img, (coluna + 14) * squareSize, (26 - linha) * squareSize, tamanho, tamanho);
+	}
+	
+	public static void remove(Componente c) {
+		tabuleiro.getCasas()[c.getLinha()][c.getColuna()].setComponente(null);
+		tabuleiro.getBoard()[c.getLinha()][c.getColuna()] = " ";
 	}
 }

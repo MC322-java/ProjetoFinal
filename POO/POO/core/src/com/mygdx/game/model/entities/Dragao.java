@@ -11,7 +11,9 @@ public class Dragao extends Componente {
 		this.setImg(new Texture("Dragoes/" + ((Util.jogaDado() % 4) + 1) + ".png"));
 	}
 	
-	public Dragao(int vida, int dano) {
+	public Dragao(int linha, int coluna, int vida, int dano) {
+		setLinha(linha);
+		setColuna(coluna);
 		setVida(vida);
 		setDano(dano);
 		this.setImg(new Texture("Dragoes/" + ((Util.jogaDado() % 4) + 1) + ".png"));

@@ -59,12 +59,11 @@ public class SelectionScreen implements Screen {
 		}
 		game.batch.draw(guerreiro, 19 * 20, 10 * 20, 20 * 6, 20 * 6);
 		if (10 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 16 * 20 && 10 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 16 * 20 && Gdx.input.isTouched()) {
-//			game.batch.draw(chao, Gdx.input.getX(), 580 - Gdx.input.getY(), 20, 20);
-			game.setScreen(new MapScreen(game, new Mago(1, 1, 100, 100, 100)));
+			// Mago(linha, coluna, vida, range, dano)
+			game.setScreen(new MapScreen(game, new Mago(1, 1, 1, 1, 1)));
 			dispose();
 		} else if (19 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 25 * 20 && 10 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 16 * 20 && Gdx.input.isTouched()) {
-//			game.batch.draw(chao, Gdx.input.getX(), 580 - Gdx.input.getY(), 20, 20);
-			game.setScreen(new MapScreen(game, new Guerreiro(1, 1, 100, 100, 100)));
+			game.setScreen(new MapScreen(game, new Guerreiro(1, 1, 1, 1, 1)));
 			dispose();
 		}
 		game.batch.end();

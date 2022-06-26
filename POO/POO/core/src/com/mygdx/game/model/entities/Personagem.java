@@ -30,7 +30,7 @@ public abstract class Personagem extends Componente {
 		chaves[idx] = null;
 	}
 	
-	public abstract void atacar(Tabuleiro tabuleiro);
+	public abstract int atacar();
 	
 	public int getVida() {
 		return vida;

@@ -27,20 +27,22 @@ public class Mago extends Personagem {
 	}
 
 	@Override
-	public void atacar(Tabuleiro tabuleiro) {
+	public int atacar() {
 		// fazer um ataque em numa area de acordo com a arma equipada (a arma altera o range e o dano)
 		
 		// ataque numa area range x range
 		// com centro na posicao em que eu estou
-		int dadoPlayer = Util.jogaDado();
-		int dadoDragoes = Util.jogaDado();
+//		int dadoPlayer = Util.jogaDado();
+		int dadoPlayer = 1;
+//		int dadoDragoes = Util.jogaDado();
+		int dadoDragoes = 0;
 		int danoRecebido = 0;
 		ArrayList<Dragao> dragoes = new ArrayList<Dragao>();
-		for (int i = linha - range / 2; i < linha + range / 2; i++) {
-			for (int j = coluna - range / 2; j < coluna + range / 2; j++) {
-				if (i != this.linha && j != this.coluna)
+		for (int i = Math.max(1, linha - range); i <= Math.min(linha + range, 23); i++) {
+			for (int j = Math.max(1, coluna - range); j <= Math.min(coluna + range, 23); j++) {
+				if (i == this.linha && j == this.coluna)
 					continue;
-				Componente c = tabuleiro.getCasas()[i][j].getComponente();
+				Componente c = TabuleiroController.tabuleiro.getCasas()[i][j].getComponente();
 				if (Util.isInstance(c, (new Dragao()).getClass())) {
 					if (dadoPlayer >= dadoDragoes)
 						dragoes.add((Dragao) c);
@@ -49,10 +51,22 @@ public class Mago extends Personagem {
 				}
 			}
 		}
+		if (dragoes.isEmpty())
+			return -1;
 		vida -= danoRecebido;
 		for (Dragao d : dragoes) {
-			d.setVida(d.getVida() - dano / dragoes.size());
+//			d.setVida(d.getVida() - dano / dragoes.size());
+			d.setVida(0);
 			// OLHAR SE O DRAGAO MORREU
 		}
+		int cntMortos = 0;
+		for (Dragao d : dragoes) {
+			System.out.println("O dragao em (" + d.getLinha() + ", " + d.getColuna() + ") morreu!");
+			if (d.getVida() <= 0) {
+				TabuleiroController.remove(d);
+				cntMortos++;
+			}
+		}
+		return cntMortos;
 	}
 }
