@@ -1,5 +1,5 @@
 # Projeto Final - Dungeons and Dragons
-  * [MVC - D&D](https://github.com/MC322-java/ProjetoFinal/tree/main/POO/POO/core/src/com/mygdx/game)
+  * LINK MVC : [D&D](https://github.com/MC322-java/ProjetoFinal/tree/main/POO/POO/core/src/com/mygdx/game)
 
 # Descrição 
 
@@ -16,7 +16,7 @@
 # Slides do Projeto
 
 ## Slides da Prévia
-PDF: `[ApresentaçãoPrévia.pdf]`(https://github.com/MC322-java/ProjetoFinal/files/8987255/dungeons.and.dragons-previa.pdf)
+PDF: [Prévia.pdf](https://github.com/MC322-java/ProjetoFinal/files/8987255/dungeons.and.dragons-previa.pdf)
 
 
 ## Slides da Apresentação Final
