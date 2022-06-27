@@ -7,7 +7,7 @@
 
 # Equipe
 * `Andreas Cisi Ramos` - `246932`
-* `<nome completo>` - `<RA>`
+* `Luiz Fernando Batista Morato` - `223406`
 
 # Arquivo Executável do Jogo
 
