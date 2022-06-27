@@ -12,14 +12,19 @@ import com.mygdx.game.model.util.*;
 
 public class Mago extends Personagem {
 	
+	public Texture ataque = new Texture("ataque-mago.png");
+	
 	public Mago() {
 		super();
 		this.setImgDireita(new Texture("Characters/guerreiro-direita.png"));
 		this.setImgEsquerda(new Texture("Characters/guerreiro-esquerda.png"));
 		this.setImg(this.getImgDireita());
+		this.nome = "Mago";
+		setTela();
 	}
 	
 	public Mago(int linha, int coluna, int vida, int range, int dano) {
+		super();
 		setLinha(linha);
 		setColuna(coluna);
 		setVida(vida);
@@ -28,14 +33,19 @@ public class Mago extends Personagem {
 		this.setImgDireita(new Texture("Characters/mago-direita.png"));
 		this.setImgEsquerda(new Texture("Characters/mago-esquerda.png"));
 		this.setImg(this.getImgDireita());
+		this.nome = "Mago";
+		setTela();
 	}
 
 	@Override
-	public int atacar() {
-		// fazer um ataque em numa area de acordo com a arma equipada (a arma altera o range e o dano)
-		
-		// ataque numa area range x range
-		// com centro na posicao em que eu estou
+	public ArrayList<Integer> area() {
+		ArrayList<Integer> ret = new ArrayList<Integer>();
+		return ret;
+	}
+	
+	@Override
+	public Ataque atacar(Direcao direcao) {
+		Dragao drag = new Dragao();
 //		int dadoPlayer = Util.jogaDado();
 		int dadoPlayer = 1;
 //		int dadoDragoes = Util.jogaDado();
@@ -47,7 +57,7 @@ public class Mago extends Personagem {
 				if (i == this.linha && j == this.coluna)
 					continue;
 				Componente c = TabuleiroController.tabuleiro.getCasas()[i][j].getComponente();
-				if (Util.isInstance(c, (new Dragao()).getClass())) {
+				if (c != null && Util.isInstance(c, drag.getClass())) {
 					if (dadoPlayer >= dadoDragoes)
 						dragoes.add((Dragao) c);
 					else
@@ -55,13 +65,12 @@ public class Mago extends Personagem {
 				}
 			}
 		}
-		if (dragoes.isEmpty())
-			return -1;
+		if (danoRecebido == 0 && dragoes.isEmpty())
+			return Ataque.VENTO;
 		vida -= danoRecebido;
 		for (Dragao d : dragoes) {
 //			d.setVida(d.getVida() - dano / dragoes.size());
 			d.setVida(0);
-			// OLHAR SE O DRAGAO MORREU
 		}
 		int cntMortos = 0;
 		for (Dragao d : dragoes) {
@@ -71,6 +80,8 @@ public class Mago extends Personagem {
 				cntMortos++;
 			}
 		}
-		return cntMortos;
+		if (cntMortos == 0)
+			return Ataque.FALHOU;
+		return Ataque.ACERTOU;
 	}
 }

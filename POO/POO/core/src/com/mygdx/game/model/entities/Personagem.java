@@ -4,14 +4,19 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.model.entities.objetos.Chave;
+import com.mygdx.game.model.util.Ataque;
+import com.mygdx.game.model.util.Direcao;
 
 public abstract class Personagem extends Componente {
 	protected int vida;
 	// protected int estamina;
 	protected int range;
 	protected int dano; // talvez mudar o jeito que o dano eh calculado
+	protected Direcao direcao;
 	protected Chave chaves[] = new Chave[8];
 	protected Texture imgDireita, imgEsquerda;
+	private Texture tela;
+	protected String nome;
 	protected boolean direita;
 	
 	protected Personagem() {
@@ -43,7 +48,13 @@ public abstract class Personagem extends Componente {
 			this.setImg(this.getImgDireita());
 	}
 	
-	public abstract int atacar();
+	public void setTela() {
+		tela = new Texture(this.nome + "Tela.png");
+	}
+	
+	public abstract ArrayList<Integer> area();
+	
+	public abstract Ataque atacar(Direcao direcao);
 	
 	public int getVida() {
 		return vida;
@@ -99,5 +110,13 @@ public abstract class Personagem extends Componente {
 
 	public void setImgEsquerda(Texture imgEsquerda) {
 		this.imgEsquerda = imgEsquerda;
+	}
+
+	public Texture getTela() {
+		return tela;
+	}
+
+	public void setTela(Texture tela) {
+		this.tela = tela;
 	}
 }

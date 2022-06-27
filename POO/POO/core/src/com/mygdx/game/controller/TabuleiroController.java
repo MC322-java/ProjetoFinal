@@ -1,9 +1,9 @@
 package com.mygdx.game.controller;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Tabuleiro;
 import com.mygdx.game.view.MapScreen;
-import com.badlogic.gdx.graphics.Texture;
 
 public class TabuleiroController {
 	
@@ -19,7 +19,6 @@ public class TabuleiroController {
 			for (int j = 0; j < 25; j++) {
 				if (tabuleiro.getCasas()[i][j].getComponente() == null)
 					continue;
-				
 				plot(mapScreen, tabuleiro.getCasas()[i][j].getComponente().getImg(), i, j, squareSize, squareSize);
 			}
 		}

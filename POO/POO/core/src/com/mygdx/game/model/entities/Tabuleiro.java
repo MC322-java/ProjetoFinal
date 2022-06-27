@@ -42,9 +42,7 @@ public class Tabuleiro {
 		for (int i = 0; i < 25; i++) {
 			for (int j = 0; j < 25; j++) {
 				getCasas()[i][j] = new Casa(this, null);
-				if (board[i][j] == "p")
-					getCasas()[i][j].setComponente(new Componente(new Texture("parede.png")));
-				else if (board[i][j] == "D")
+				if (board[i][j] == "D")
 					getCasas()[i][j].setComponente(new Dragao(i, j, 1, 1));
 				else if (board[i][j].charAt(0) == 'B')
 					getCasas()[i][j].setComponente(new Porta(Integer.parseInt(board[i][j].substring(1, 2))));
@@ -52,8 +50,8 @@ public class Tabuleiro {
 					getCasas()[i][j].setComponente(new Bau());
 				else if (board[i][j].charAt(0) == 'K')
 					getCasas()[i][j].setComponente(new Chave(Integer.parseInt(board[i][j].substring(1, 2))));
-				if (i == 1 && j == 1)
-					getCasas()[i][j].setComponente(PersonagemController.p);
+//				if (i == 1 && j == 1)
+//					getCasas()[i][j].setComponente(PersonagemController.p);
 			}
 		}
 	}

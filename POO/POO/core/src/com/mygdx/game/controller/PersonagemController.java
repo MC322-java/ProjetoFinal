@@ -1,11 +1,15 @@
 package com.mygdx.game.controller;
 
+import java.util.ArrayList;
+
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Personagem;
 import com.mygdx.game.model.entities.objetos.Chave;
 import com.mygdx.game.model.entities.objetos.Porta;
 import com.mygdx.game.model.entities.personagens.Guerreiro;
 import com.mygdx.game.model.entities.personagens.Mago;
+import com.mygdx.game.model.util.Ataque;
+import com.mygdx.game.model.util.Direcao;
 import com.mygdx.game.model.util.Util;
 import com.mygdx.game.view.MapScreen;
 
@@ -18,10 +22,14 @@ public class PersonagemController {
 	}
 	
 	public static void move(int novaLinha, int novaColuna) {
-		if (!p.isDireita() && p.getLinha() == novaLinha && p.getColuna() == novaColuna - 1)
+		if (!p.isDireita() && p.getLinha() == novaLinha && p.getColuna() == novaColuna - 1) {
 			p.mudaDirecao();
-		if (p.isDireita() && p.getLinha() == novaLinha && p.getColuna() == novaColuna + 1)
+			return;
+		}
+		if (p.isDireita() && p.getLinha() == novaLinha && p.getColuna() == novaColuna + 1) {
 			p.mudaDirecao();
+			return;
+		}
 		char caractere = TabuleiroController.tabuleiro.getBoard()[novaLinha][novaColuna].charAt(0);
 		Componente c = TabuleiroController.tabuleiro.getCasas()[novaLinha][novaColuna].getComponente();
 		if (caractere == 'p')
@@ -47,11 +55,16 @@ public class PersonagemController {
 		TabuleiroController.tabuleiro.getCasas()[p.getLinha()][p.getColuna()].setComponente(p);
 	}
 	
-	public static void setP(Personagem p) {
-		PersonagemController.p = p;
+	public static ArrayList<Integer> area() {
+		return p.area();
 	}
 	
-	public static int atacar() {
-		return p.atacar();
+	public static void setP(Personagem p) {
+		PersonagemController.p = p;
+		TabuleiroController.tabuleiro.getCasas()[1][1].setComponente(p);
+	}
+	
+	public static Ataque atacar(Direcao direcao) {
+		return p.atacar(direcao);
 	}
 }
