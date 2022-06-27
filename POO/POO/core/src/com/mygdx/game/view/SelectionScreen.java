@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.DungeonsAndDragons;
+import com.mygdx.game.controller.TabuleiroController;
+import com.mygdx.game.model.entities.Tabuleiro;
 import com.mygdx.game.model.entities.personagens.Arqueiro;
 import com.mygdx.game.model.entities.personagens.Barbaro;
 import com.mygdx.game.model.entities.personagens.Guerreiro;
@@ -18,7 +20,7 @@ public class SelectionScreen implements Screen {
 	private Texture fundo;
 	private int lastClick, contador;
 	private Mago mago = new Mago(1, 1, 100, 1, 50);
-	private Guerreiro guerreiro = new Guerreiro(1, 1, 150, 1, 60);
+	private Guerreiro guerreiro = new Guerreiro(1, 1, 150, 3, 60);
 	private Arqueiro arqueiro = new Arqueiro(1, 1, 90, 25, 50);
 	private Barbaro barbaro = new Barbaro(1, 1, 150, 1, 40);
 	
@@ -57,6 +59,10 @@ public class SelectionScreen implements Screen {
 			}else if (39 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 49 * 20 && 8 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 17 * 20 && Gdx.input.isTouched()) {
 				game.setScreen(new ConfirmationScreen(game, barbaro.getTela(), barbaro));
 				dispose();
+			}
+			if (51 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 53 * 20 && 27 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 29 * 20 && Gdx.input.isTouched()) {
+				TabuleiroController.tabuleiro = new Tabuleiro();
+				game.setScreen(new MainMenuScreen(game));
 			}
 			lastClick = contador;
 		}

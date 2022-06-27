@@ -3,6 +3,7 @@ package com.mygdx.game.model.entities.personagens;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.DungeonsAndDragons;
 import com.mygdx.game.controller.ObjetoController;
 import com.mygdx.game.controller.PersonagemController;
 import com.mygdx.game.controller.TabuleiroController;
@@ -14,11 +15,17 @@ import com.mygdx.game.model.util.*;
 
 public class Guerreiro extends Personagem {
 	
+	private Texture cima, baixo, esquerda, direita;
+	
 	public Guerreiro() {
 		super();
 		this.setImgDireita(new Texture("Characters/guerreiro-direita.png"));
 		this.setImgEsquerda(new Texture("Characters/guerreiro-esquerda.png"));
 		this.setImg(this.getImgDireita());
+		this.cima = new Texture("ataque-guerreiro-cima.png");
+		this.baixo = new Texture("ataque-guerreiro-baixo.png");
+		this.esquerda = new Texture("ataque-guerreiro-esquerda.png");
+		this.direita = new Texture("ataque-guerreiro-direita.png");
 		this.nome = "Guerreiro";
 		setTela();
 	}
@@ -33,13 +40,53 @@ public class Guerreiro extends Personagem {
 		this.setImgDireita(new Texture("Characters/guerreiro-direita.png"));
 		this.setImgEsquerda(new Texture("Characters/guerreiro-esquerda.png"));
 		this.setImg(this.getImgDireita());
+		this.cima = new Texture("ataque-guerreiro-cima.png");
+		this.baixo = new Texture("ataque-guerreiro-baixo.png");
+		this.esquerda = new Texture("ataque-guerreiro-esquerda.png");
+		this.direita = new Texture("ataque-guerreiro-direita.png");
 		this.nome = "Guerreiro";
 		setTela();
 	}
 
 	@Override
-	public ArrayList<Integer> area() {
+	public ArrayList<Integer> area(Direcao direcao) {
+		ArrayList<Integer> vi = new ArrayList<Integer>();
+		ArrayList<Integer> vj = new ArrayList<Integer>();
+		if (direcao == Direcao.DIREITA) {
+			for (int i = Math.min(coluna + 1, 24); i <= Math.min(coluna + range, 24); i++) {
+				if (TabuleiroController.tabuleiro.getBoard()[linha][i] != " ") break;
+				Componente c = TabuleiroController.tabuleiro.getCasas()[linha][i].getComponente();
+				vi.add(linha);
+				vj.add(i);
+			}
+		} else if (direcao == Direcao.ESQUERDA) {
+			for (int i = Math.max(coluna - 1, 0); i >= Math.max(coluna - range, 0); i--) {
+				if (TabuleiroController.tabuleiro.getBoard()[linha][i] != " ") break;
+				Componente c = TabuleiroController.tabuleiro.getCasas()[linha][i].getComponente();
+				vi.add(linha);
+				vj.add(i);
+			}
+		} else if (direcao == Direcao.BAIXO) {
+			for (int i = Math.min(linha + 1, 23); i <= Math.min(linha + range, 23); i++) {
+				if (TabuleiroController.tabuleiro.getBoard()[i][coluna] != " ") break;
+				Componente c = TabuleiroController.tabuleiro.getCasas()[i][coluna].getComponente();
+				vi.add(i);
+				vj.add(coluna);
+			}
+		} else {
+			for (int i = Math.max(linha - 1, 0); i >= Math.max(linha - range, 0); i--) {
+				if (TabuleiroController.tabuleiro.getBoard()[i][coluna] != " ") break;
+				Componente c = TabuleiroController.tabuleiro.getCasas()[i][coluna].getComponente();
+				vi.add(i);
+				vj.add(coluna);
+			}
+		}
 		ArrayList<Integer> ret = new ArrayList<Integer>();
+		ret.add(vi.size());
+		for (int x : vj)
+			ret.add(x);
+		for (int x : vi)
+			ret.add(x);
 		return ret;
 	}
 	
@@ -50,8 +97,6 @@ public class Guerreiro extends Personagem {
 		int dadoPlayer = 1;
 		int dadoDragoes = 0;
 		Dragao dragao = null;
-		int start = 0;
-		int end = 0;
 		if (direcao == Direcao.DIREITA) {
 			for (int i = Math.min(coluna + 1, 24); i <= Math.min(coluna + range, 24); i++) {
 				Componente c = TabuleiroController.tabuleiro.getCasas()[linha][i].getComponente();
@@ -106,5 +151,27 @@ public class Guerreiro extends Personagem {
 		}
 		dragao.setVida(dragao.getVida() - dano);
 		return Ataque.ACERTOU;
+	}
+
+	@Override
+	public Texture getAtaque(Direcao direcao) {
+		Texture xd = null;
+		switch (direcao) {
+			case CIMA:
+				xd = cima;
+				break;
+			case BAIXO:
+				xd = baixo;
+				break;
+			case DIREITA:
+				xd = direita;
+				break;
+			case ESQUERDA:
+				xd = esquerda;
+				break;
+			default:
+				break;
+		}
+		return xd;
 	}
 }

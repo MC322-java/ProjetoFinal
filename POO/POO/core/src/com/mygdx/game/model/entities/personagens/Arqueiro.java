@@ -3,6 +3,7 @@ package com.mygdx.game.model.entities.personagens;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.DungeonsAndDragons;
 import com.mygdx.game.controller.ObjetoController;
 import com.mygdx.game.controller.TabuleiroController;
 import com.mygdx.game.model.entities.Componente;
@@ -37,8 +38,56 @@ public class Arqueiro extends Personagem {
 	}
 	
 	@Override
-	public ArrayList<Integer> area() {
+	public ArrayList<Integer> area(Direcao direcao) {
+		ArrayList<Integer> vi = new ArrayList<Integer>();
+		ArrayList<Integer> vj = new ArrayList<Integer>();
+		if (direcao == Direcao.DIREITA) {
+			for (int i = Math.min(coluna + 1, 24); i <= Math.min(coluna + range, 24); i++) {
+				Componente c = TabuleiroController.tabuleiro.getCasas()[linha][i].getComponente();
+				vi.add(linha);
+				vj.add(i);
+				if (TabuleiroController.tabuleiro.getBoard()[linha][i] == " ") continue;
+				if (c != null && Util.isInstance(c, (new Dragao()).getClass())) {
+					break;
+				}
+			}
+		} else if (direcao == Direcao.ESQUERDA) {
+			for (int i = Math.max(coluna - 1, 0); i >= Math.max(coluna - range, 0); i--) {
+				Componente c = TabuleiroController.tabuleiro.getCasas()[linha][i].getComponente();
+				vi.add(linha);
+				vj.add(i);
+				if (TabuleiroController.tabuleiro.getBoard()[linha][i] == " ") continue;
+				if (c != null && Util.isInstance(c, (new Dragao()).getClass())) {
+					break;
+				}
+			}
+		} else if (direcao == Direcao.BAIXO) {
+			for (int i = Math.min(linha + 1, 23); i <= Math.min(linha + range, 23); i++) {
+				Componente c = TabuleiroController.tabuleiro.getCasas()[i][coluna].getComponente();
+				vi.add(i);
+				vj.add(coluna);
+				if (TabuleiroController.tabuleiro.getBoard()[linha][i] == " ") continue;
+				if (c != null && Util.isInstance(c, (new Dragao()).getClass())) {
+					break;
+				}
+			}
+		} else {
+			for (int i = Math.max(linha - 1, 0); i >= Math.max(linha - range, 0); i--) {
+				Componente c = TabuleiroController.tabuleiro.getCasas()[i][coluna].getComponente();
+				vi.add(i);
+				vj.add(coluna);
+				if (TabuleiroController.tabuleiro.getBoard()[linha][i] == " ") continue;
+				if (c != null && Util.isInstance(c, (new Dragao()).getClass())) {
+					break;
+				}
+			}
+		}
 		ArrayList<Integer> ret = new ArrayList<Integer>();
+		ret.add(vi.size());
+		for (int x : vi)
+			ret.add(x);
+		for (int x : vj)
+			ret.add(x);
 		return ret;
 	}
 

@@ -15,6 +15,7 @@ import com.mygdx.game.controller.TabuleiroController;
 import com.mygdx.game.model.Texto;
 import com.mygdx.game.model.entities.Personagem;
 import com.mygdx.game.model.entities.Tabuleiro;
+import com.mygdx.game.model.entities.personagens.Arqueiro;
 import com.mygdx.game.model.util.Ataque;
 import com.mygdx.game.model.util.Direcao;
 import com.mygdx.game.model.util.Util;
@@ -48,7 +49,8 @@ public class MapScreen implements Screen {
 			dadosPlayer.add(new Texture("DadoPlayer/" + i + ".png"));
 			dadosDragao.add(new Texture("DadoDragao/" + i + ".png"));
 		}
-		idxD1 = idxD2 = 0;
+		idxD1 = Util.jogaDado();
+		idxD2 = Util.jogaDado();
 		contadorAtaque = 0;
 		atacando = false;
 	};
@@ -93,7 +95,10 @@ public class MapScreen implements Screen {
 				atacando = false;
 				contadorAtaque = 0;
 			} else {
-				pisca(PersonagemController.area());
+				ArrayList<Integer> regiao = PersonagemController.area(Direcao.DIREITA);
+				for (int i = 1; i <= regiao.get(0); i++) {
+					game.batch.draw(PersonagemController.imagemAtaque(Direcao.DIREITA), (14 + regiao.get(i)) * 20, (26 - regiao.get(i + regiao.get(0))) * 20, 20, 20);
+				}
 				idxD1 = Util.jogaDado();
 				idxD2 = Util.jogaDado();
 				contadorAtaque++;
@@ -108,6 +113,9 @@ public class MapScreen implements Screen {
 		if (51 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 53 * 20 && 27 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 29 * 20 && Gdx.input.isTouched()) {
 			TabuleiroController.tabuleiro = new Tabuleiro();
 			game.setScreen(new MainMenuScreen(game));
+		}
+		if (PersonagemController.lastPosition()) {
+			game.setScreen(new YouWinScreen(game));
 		}
 		camera.update();
 		game.batch.end();
@@ -138,6 +146,4 @@ public class MapScreen implements Screen {
 	@Override
 	public void dispose() {
 	}
-
-	
 }

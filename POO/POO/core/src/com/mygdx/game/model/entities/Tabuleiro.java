@@ -50,8 +50,6 @@ public class Tabuleiro {
 					getCasas()[i][j].setComponente(new Bau());
 				else if (board[i][j].charAt(0) == 'K')
 					getCasas()[i][j].setComponente(new Chave(Integer.parseInt(board[i][j].substring(1, 2))));
-//				if (i == 1 && j == 1)
-//					getCasas()[i][j].setComponente(PersonagemController.p);
 			}
 		}
 	}

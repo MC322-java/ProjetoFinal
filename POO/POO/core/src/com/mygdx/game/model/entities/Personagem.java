@@ -3,6 +3,7 @@ package com.mygdx.game.model.entities;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.DungeonsAndDragons;
 import com.mygdx.game.model.entities.objetos.Chave;
 import com.mygdx.game.model.util.Ataque;
 import com.mygdx.game.model.util.Direcao;
@@ -52,9 +53,11 @@ public abstract class Personagem extends Componente {
 		tela = new Texture(this.nome + "Tela.png");
 	}
 	
-	public abstract ArrayList<Integer> area();
+	public abstract ArrayList<Integer> area(Direcao direcao);
 	
 	public abstract Ataque atacar(Direcao direcao);
+	
+	public abstract Texture getAtaque(Direcao direcao);
 	
 	public int getVida() {
 		return vida;
