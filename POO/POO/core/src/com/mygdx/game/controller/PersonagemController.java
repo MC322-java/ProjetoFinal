@@ -18,6 +18,10 @@ public class PersonagemController {
 	}
 	
 	public static void move(int novaLinha, int novaColuna) {
+		if (!p.isDireita() && p.getLinha() == novaLinha && p.getColuna() == novaColuna - 1)
+			p.mudaDirecao();
+		if (p.isDireita() && p.getLinha() == novaLinha && p.getColuna() == novaColuna + 1)
+			p.mudaDirecao();
 		char caractere = TabuleiroController.tabuleiro.getBoard()[novaLinha][novaColuna].charAt(0);
 		Componente c = TabuleiroController.tabuleiro.getCasas()[novaLinha][novaColuna].getComponente();
 		if (caractere == 'p')

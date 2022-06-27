@@ -19,7 +19,7 @@ public class MapScreen implements Screen {
 	public final DungeonsAndDragons game;
 	private Texto texto;
 	private OrthographicCamera camera;
-	private Texture fundo, player;
+	private Texture fundo;
 	public static int squareSize;
 	float deltaMovement = 0;
 	
@@ -33,7 +33,6 @@ public class MapScreen implements Screen {
 		squareSize = 20;
 		texto = new Texto();
 		PersonagemController.p = p;
-		player = p.getImg();
 	};
 	
 	@Override
@@ -43,7 +42,7 @@ public class MapScreen implements Screen {
 	    game.batch.begin();
 		game.batch.setProjectionMatrix(camera.combined);
 		game.batch.draw(fundo, 0, 0, 1060, 580);
-		game.batch.draw(player, 4 * squareSize, 18.5f * squareSize, 6 * squareSize, 6 * squareSize);
+		game.batch.draw(PersonagemController.p.getImg(), 4 * squareSize, 18.5f * squareSize, 6 * squareSize, 6 * squareSize);
 		TabuleiroController.drawMap(this, squareSize);
 		game.font.draw(game.batch, texto.getMensagem(), 1.5f * MapScreen.squareSize, 3.5f * MapScreen.squareSize);
 		if (deltaMovement >= 5) {

@@ -14,7 +14,9 @@ public class Mago extends Personagem {
 	
 	public Mago() {
 		super();
-		this.setImg(new Texture("mago.png"));
+		this.setImgDireita(new Texture("Characters/guerreiro-direita.png"));
+		this.setImgEsquerda(new Texture("Characters/guerreiro-esquerda.png"));
+		this.setImg(this.getImgDireita());
 	}
 	
 	public Mago(int linha, int coluna, int vida, int range, int dano) {
@@ -23,7 +25,9 @@ public class Mago extends Personagem {
 		setVida(vida);
 		setRange(range);
 		setDano(dano);
-		this.setImg(new Texture("mago.png"));
+		this.setImgDireita(new Texture("Characters/mago-direita.png"));
+		this.setImgEsquerda(new Texture("Characters/mago-esquerda.png"));
+		this.setImg(this.getImgDireita());
 	}
 
 	@Override

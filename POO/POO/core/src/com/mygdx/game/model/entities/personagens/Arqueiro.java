@@ -10,23 +10,22 @@ import com.mygdx.game.model.entities.Personagem;
 import com.mygdx.game.model.entities.Tabuleiro;
 import com.mygdx.game.model.util.*;
 
-public class Guerreiro extends Personagem {
+public class Arqueiro extends Personagem {
 	
-	public Guerreiro() {
-		this.setImgDireita(new Texture("Characters/guerreiro-direita.png"));
-		this.setImgEsquerda(new Texture("Characters/guerreiro-esquerda.png"));
+	public Arqueiro() {
+		this.setImgDireita(new Texture("Characters/arqueiro-direita.png"));
+		this.setImgEsquerda(new Texture("Characters/arqueiro-esquerda.png"));
 		this.setImg(this.getImgDireita());
 	}
 	
-	public Guerreiro(int linha, int coluna, int vida, int range, int dano) {
-		super();
+	public Arqueiro(int linha, int coluna, int vida, int range, int dano) {
 		setLinha(linha);
 		setColuna(coluna);
 		setVida(vida);
 		setRange(range);
 		setDano(dano);
-		this.setImgDireita(new Texture("Characters/guerreiro-direita.png"));
-		this.setImgEsquerda(new Texture("Characters/guerreiro-esquerda.png"));
+		this.setImgDireita(new Texture("Characters/arqueiro-direita.png"));
+		this.setImgEsquerda(new Texture("Characters/arqueiro-esquerda.png"));
 		this.setImg(this.getImgDireita());
 	}
 
