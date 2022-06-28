@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.DungeonsAndDragons;
 import com.mygdx.game.controller.ObjetoController;
 import com.mygdx.game.controller.TabuleiroController;
+import com.mygdx.game.model.Texto;
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Dragao;
 import com.mygdx.game.model.entities.Personagem;
@@ -27,6 +28,7 @@ public class Arqueiro extends Personagem {
 		this.esquerda = new Texture("ataque-arqueiro-esquerda.png");
 		this.direita = new Texture("ataque-arqueiro-direita.png");
 		this.nome = "Arqueiro";
+		this.Score = 0;
 		setTela();
 	}
 	
@@ -46,6 +48,7 @@ public class Arqueiro extends Personagem {
 		this.esquerda = new Texture("ataque-arqueiro-esquerda.png");
 		this.direita = new Texture("ataque-arqueiro-direita.png");
 		this.nome = "Arqueiro";
+		this.Score = 0;
 		setTela();
 	}
 	
@@ -112,7 +115,7 @@ public class Arqueiro extends Personagem {
 	}
 
 	@Override
-	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes) {
+	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes, Texto texto) {
 		Dragao dragao = null;
 		if (direcao == Direcao.DIREITA) {
 			for (int i = Math.min(coluna + 1, 24); i <= Math.min(coluna + range, 24); i++) {
@@ -164,11 +167,15 @@ public class Arqueiro extends Personagem {
 		}
 		if (dadoPlayer < dadoDragoes) {
 			setVida(getVida() - dragao.getDano());
+			texto.setMensagem("Voce recebeu " + dragao.getDano() + " de dano");
 			return Ataque.FALHOU;
 		}
 		dragao.setVida(dragao.getVida() - dano);
-		if (dragao.getVida() == 0)
+		if (dragao.getVida() <= 0) {
 			ObjetoController.removeObject(dragao.getLinha(), dragao.getColuna());
+			setScore( getScore() + 100);
+		}
+		texto.setMensagem("Voce causou " + dano + " de dano");
 		return Ataque.ACERTOU;
 	}
 

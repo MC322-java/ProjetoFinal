@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.DungeonsAndDragons;
+import com.mygdx.game.model.Texto;
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Personagem;
 import com.mygdx.game.model.entities.objetos.Bau;
@@ -25,7 +26,7 @@ public class PersonagemController {
 		TabuleiroController.tabuleiro.getCasas()[p.getLinha()][p.getColuna()].setComponente(p);
 	}
 	
-	public static void move(int novaLinha, int novaColuna) {
+	public static void move(int novaLinha, int novaColuna, Texto texto) {
 		if (!p.isDireita() && p.getLinha() == novaLinha && p.getColuna() == novaColuna - 1) {
 			p.mudaDirecao();
 			return;
@@ -41,16 +42,17 @@ public class PersonagemController {
 		if (caractere == 'D')
 			return;
 		if (caractere == 'C') {
-			((Bau) c).abrir(p);
+			((Bau) c).abrir(p, texto);
 			return;
 		}
 		if (caractere == 'K') {
 			p.addChave(((Chave) c).getID());
+			texto.setMensagem("Voce coletou a chave " + ((Chave) c).getID());
 			ObjetoController.removeObject(novaLinha, novaColuna);
 		}
 		if (caractere == 'B') {
 			if (p.getChaves()[((Porta) c).getID()] != null) {
-				System.out.println(((Porta) c).getID());
+				texto.setMensagem("Voce abriu a porta " + ((Porta) c).getID());
 				ObjetoController.removeObject(novaLinha, novaColuna);
 			} else {
 				return;
@@ -76,8 +78,8 @@ public class PersonagemController {
 		TabuleiroController.tabuleiro.getCasas()[1][1].setComponente(p);
 	}
 	
-	public static Ataque atacar(Direcao direcao, int a, int b) {
-		return p.atacar(direcao, a, b);
+	public static Ataque atacar(Direcao direcao, int a, int b, Texto texto) {
+		return p.atacar(direcao, a, b, texto);
 	}
 
 	public static Texture imagemAtaque(Direcao direcao) {

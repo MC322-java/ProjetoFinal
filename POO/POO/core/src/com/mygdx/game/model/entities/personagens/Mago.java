@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.DungeonsAndDragons;
 import com.mygdx.game.controller.TabuleiroController;
+import com.mygdx.game.model.Texto;
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Dragao;
 import com.mygdx.game.model.entities.Personagem;
@@ -23,6 +24,7 @@ public class Mago extends Personagem {
 		this.setTipo(0);
 		this.nome = "Mago";
 		this.ataque = new Texture("ataque-mago.png");
+		this.Score = 0;
 		setTela();
 	}
 	
@@ -39,6 +41,7 @@ public class Mago extends Personagem {
 		this.setTipo(0);
 		this.nome = "Mago";
 		this.ataque = new Texture("ataque-mago.png");
+		this.Score = 0;
 		setTela();
 	}
 
@@ -67,7 +70,7 @@ public class Mago extends Personagem {
 	}
 	
 	@Override
-	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes) {
+	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes, Texto texto) {
 		Dragao drag = new Dragao();
 		int danoRecebido = 0;
 		ArrayList<Dragao> dragoes = new ArrayList<Dragao>();
@@ -92,14 +95,17 @@ public class Mago extends Personagem {
 		}
 		int cntMortos = 0;
 		for (Dragao d : dragoes) {
-			System.out.println("O dragao em (" + d.getLinha() + ", " + d.getColuna() + ") morreu!");
 			if (d.getVida() <= 0) {
 				TabuleiroController.remove(d);
+				setScore( getScore() + 100);
 				cntMortos++;
 			}
 		}
-		if (cntMortos == 0)
+		if (danoRecebido > 0) {
+			texto.setMensagem("Voce recebeu " + danoRecebido + " de dano");
 			return Ataque.FALHOU;
+		}
+		texto.setMensagem("Voce causou " + dano + " de dano");
 		return Ataque.ACERTOU;
 	}
 

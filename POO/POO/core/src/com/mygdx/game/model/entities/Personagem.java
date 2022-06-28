@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.DungeonsAndDragons;
+import com.mygdx.game.model.Texto;
 import com.mygdx.game.model.entities.objetos.Chave;
 import com.mygdx.game.model.util.Ataque;
 import com.mygdx.game.model.util.Direcao;
@@ -20,6 +21,7 @@ public abstract class Personagem extends Componente {
 	private Texture tela;
 	protected String nome;
 	protected boolean direita;
+	protected int Score;
 	
 	protected Personagem() {
 		super();
@@ -48,7 +50,7 @@ public abstract class Personagem extends Componente {
 	
 	public abstract ArrayList<Integer> area(Direcao direcao);
 	
-	public abstract Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes);
+	public abstract Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes, Texto texto);
 	
 	public abstract Texture getAtaque(Direcao direcao);
 	
@@ -120,5 +122,15 @@ public abstract class Personagem extends Componente {
 
 	public void setTela(Texture tela) {
 		this.tela = tela;
+	}
+
+	public int getScore() {
+		// TODO Auto-generated method stub
+		return this.Score;
+	}
+
+	public void setScore(int Score) {
+		this.Score = Score;
+		
 	}
 }

@@ -71,9 +71,12 @@ public class MapScreen implements Screen {
 		game.batch.draw(PersonagemController.p.getImg(), 4 * squareSize, 18.5f * squareSize, 6 * squareSize, 6 * squareSize);
 		game.batch.draw(dadosPlayer.get(idxD1), 44 * squareSize, 20 * squareSize, 4 * squareSize, 4 * squareSize);
 		game.batch.draw(dadosDragao.get(idxD2), 44 * squareSize, 10 * squareSize, 4 * squareSize, 4 * squareSize);
+		
 		game.font.draw(game.batch, String.valueOf(PersonagemController.p.getVida()), 42.2f * MapScreen.squareSize, 5.8f * MapScreen.squareSize);
 		game.font.draw(game.batch, String.valueOf(PersonagemController.p.getDano()), 43.5f * MapScreen.squareSize, 4.75f * MapScreen.squareSize);
 		game.font.draw(game.batch, String.valueOf(PersonagemController.p.getRange()), 43f * MapScreen.squareSize, 3.9f * MapScreen.squareSize);
+		game.font.draw(game.batch, String.valueOf(PersonagemController.p.getScore()), 42.8f * MapScreen.squareSize, 2.9f * MapScreen.squareSize);
+		
 		TabuleiroController.drawMap(this, squareSize);
 		game.font.draw(game.batch, texto.getMensagem(), 1.5f * MapScreen.squareSize, 3.5f * MapScreen.squareSize);
 		if (!atacando) {
@@ -104,22 +107,17 @@ public class MapScreen implements Screen {
 			} else if ((contador + TIMER_DADO - 1) / TIMER_DADO == 2) {
 				contador++;
 				if (PersonagemController.p.getTipo() == 0) {
-					System.out.println(contadorAtaque);
 					if (contadorAtaque == 50) {
-						Ataque ataqueInfo = PersonagemController.atacar(Direcao.DIREITA, idxD1, idxD2);
+						Ataque ataqueInfo = PersonagemController.atacar(Direcao.DIREITA, idxD1, idxD2, texto);
 						if (acertouDragao || ataqueInfo == Ataque.ACERTOU) { // > 0
 							acertouDragao = true;
-							texto.setMensagem("Voce acertou um dragao");
-						} else if (ataqueInfo == Ataque.FALHOU) {
-							texto.setMensagem("Seu ataque falhou");
-						} else {
+						} else if (ataqueInfo == Ataque.VENTO) {
 							texto.setMensagem("Voce atacou o vento");
 						}
 //						atacando = false;
 						contadorAtaque = 1;
 					} else if (idxD2 <= idxD1){
 						ArrayList<Integer> regiao = PersonagemController.area(Direcao.DIREITA);
-						System.out.println(regiao.get(0));
 						for (int i = 1; i <= regiao.get(0); i++) {
 							game.batch.draw(PersonagemController.imagemAtaque(Direcao.DIREITA), (14 + regiao.get(i)) * 20, (26 - regiao.get(i + regiao.get(0))) * 20, 20, 20);
 						}
@@ -131,13 +129,11 @@ public class MapScreen implements Screen {
 					}
 				} else if (PersonagemController.p.getTipo() == 1) {
 					if (contadorAtaque == 50) {
-						Ataque ataqueInfo = PersonagemController.atacar(direcao, idxD1, idxD2);
+						Ataque ataqueInfo = PersonagemController.atacar(direcao, idxD1, idxD2, texto);
 						if (acertouDragao || ataqueInfo == Ataque.ACERTOU) {// > 0
 							acertouDragao = true;
-							texto.setMensagem("Voce acertou um dragao");
-						} else if (ataqueInfo == Ataque.FALHOU) {
-							texto.setMensagem("Seu ataque falhou");
-						} else {
+						} else if (ataqueInfo == Ataque.VENTO) {
+//						} else {
 							texto.setMensagem("Voce atacou o vento");
 						}
 //						atacando = false;
@@ -155,13 +151,10 @@ public class MapScreen implements Screen {
 					}
 				} else {
 					if (contadorAtaque == 50) {
-						Ataque ataqueInfo = PersonagemController.atacar(direcao, idxD1, idxD2);
+						Ataque ataqueInfo = PersonagemController.atacar(direcao, idxD1, idxD2, texto);
 						if (acertouDragao || ataqueInfo == Ataque.ACERTOU) {// > 0
 							acertouDragao = true;
-							texto.setMensagem("Voce acertou um dragao");
-						} else if (ataqueInfo == Ataque.FALHOU) {
-							texto.setMensagem("Seu ataque falhou");
-						} else {
+						} else if (ataqueInfo == Ataque.VENTO){
 							texto.setMensagem("Voce atacou o vento");
 						}
 //						atacando = false;
@@ -236,12 +229,12 @@ public class MapScreen implements Screen {
 	
 	public void move() {
 		if (Gdx.input.isKeyPressed(Keys.LEFT))
-			PersonagemController.move(PersonagemController.p.getLinha(), PersonagemController.p.getColuna() - 1);
+			PersonagemController.move(PersonagemController.p.getLinha(), PersonagemController.p.getColuna() - 1, texto);
 		if (Gdx.input.isKeyPressed(Keys.RIGHT))
-			PersonagemController.move(PersonagemController.p.getLinha(), PersonagemController.p.getColuna() + 1);
+			PersonagemController.move(PersonagemController.p.getLinha(), PersonagemController.p.getColuna() + 1, texto);
 		if (Gdx.input.isKeyPressed(Keys.UP))
-			PersonagemController.move(PersonagemController.p.getLinha() - 1, PersonagemController.p.getColuna());
+			PersonagemController.move(PersonagemController.p.getLinha() - 1, PersonagemController.p.getColuna(), texto);
 		if (Gdx.input.isKeyPressed(Keys.DOWN))
-			PersonagemController.move(PersonagemController.p.getLinha() + 1, PersonagemController.p.getColuna());
+			PersonagemController.move(PersonagemController.p.getLinha() + 1, PersonagemController.p.getColuna(), texto);
 	}
 }

@@ -43,7 +43,7 @@ public class Tabuleiro {
 			for (int j = 0; j < 25; j++) {
 				getCasas()[i][j] = new Casa(this, null);
 				if (board[i][j] == "D")
-					getCasas()[i][j].setComponente(new Dragao(i, j, 100, 20));
+					getCasas()[i][j].setComponente(new Dragao(i, j, 80, 10));
 				else if (board[i][j].charAt(0) == 'B')
 					getCasas()[i][j].setComponente(new Porta(Integer.parseInt(board[i][j].substring(1, 2))));
 				else if (board[i][j] == "C")
