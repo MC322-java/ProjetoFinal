@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.DungeonsAndDragons;
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Personagem;
+import com.mygdx.game.model.entities.objetos.Bau;
 import com.mygdx.game.model.entities.objetos.Chave;
 import com.mygdx.game.model.entities.objetos.Porta;
 import com.mygdx.game.model.entities.personagens.Arqueiro;
@@ -39,6 +40,10 @@ public class PersonagemController {
 			return;
 		if (caractere == 'D')
 			return;
+		if (caractere == 'C') {
+			((Bau) c).abrir(p);
+			return;
+		}
 		if (caractere == 'K') {
 			p.addChave(((Chave) c).getID());
 			ObjetoController.removeObject(novaLinha, novaColuna);
@@ -59,20 +64,6 @@ public class PersonagemController {
 	}
 	
 	public static ArrayList<Integer> area(Direcao direcao) {
-//		ArrayList<Integer> ret = p.area(direcao);
-//		ArrayList<Integer> aux = new ArrayList<Integer>();
-//		ArrayList<Integer> aux2 = new ArrayList<Integer>();
-//		aux.add(ret.get(0));
-//		for (int i = 1; i <= ret.get(0); i++) {
-//			if (TabuleiroController.tabuleiro.getBoard()[ret.get(i) - 1][ret.get(i + ret.get(0)) - 1].equals("p"))
-//				continue;
-//			aux.add(ret.get(i));
-//			aux2.add(ret.get(i + ret.get(0)));
-//		}
-//		for (int x : aux2)
-//			aux.add(x);
-//		aux.set(0, (aux.size() - 1) / 2);
-//		return aux;
 		return p.area(direcao);
 	}
 	
@@ -85,8 +76,8 @@ public class PersonagemController {
 		TabuleiroController.tabuleiro.getCasas()[1][1].setComponente(p);
 	}
 	
-	public static Ataque atacar(Direcao direcao) {
-		return p.atacar(direcao);
+	public static Ataque atacar(Direcao direcao, int a, int b) {
+		return p.atacar(direcao, a, b);
 	}
 
 	public static Texture imagemAtaque(Direcao direcao) {

@@ -20,6 +20,7 @@ public class Barbaro extends Personagem {
 		this.setImgDireita(new Texture("Characters/barbaro-direita.png"));
 		this.setImgEsquerda(new Texture("Characters/barbaro-esquerda.png"));
 		this.setImg(this.getImgDireita());
+		this.setTipo(0);
 		this.nome = "Barbaro";
 		this.ataque = new Texture("ataque-barbaro.png");
 		setTela();
@@ -30,11 +31,12 @@ public class Barbaro extends Personagem {
 		setLinha(linha);
 		setColuna(coluna);
 		setVida(vida);
-		setRange(range);
+		this.setRange(range);
 		setDano(dano);
 		this.setImgDireita(new Texture("Characters/barbaro-direita.png"));
 		this.setImgEsquerda(new Texture("Characters/barbaro-esquerda.png"));
 		this.setImg(this.getImgDireita());
+		this.setTipo(0);
 		this.nome = "Barbaro";
 		this.ataque = new Texture("ataque-barbaro.png");
 		setTela();
@@ -56,7 +58,6 @@ public class Barbaro extends Personagem {
 						continue;
 					if (TabuleiroController.tabuleiro.getBoard()[a][b].equals("p") 
 						|| TabuleiroController.tabuleiro.getBoard()[a][b].equals("C")
-						|| TabuleiroController.tabuleiro.getBoard()[a][b].charAt(0) == 'K'
 						|| TabuleiroController.tabuleiro.getBoard()[a][b].charAt(0) == 'B'
 						|| (i == this.linha && j == this.coluna))
 						continue;
@@ -75,16 +76,8 @@ public class Barbaro extends Personagem {
 	}
 
 	@Override
-	public Ataque atacar(Direcao direcao) {
-		// fazer um ataque em numa area de acordo com a arma equipada (a arma altera o range e o dano)
-		
-		// ataque numa area range x range
-		// com centro na posicao em que eu estou
+	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes) {
 		Dragao drag = new Dragao();
-//		int dadoPlayer = Util.jogaDado();
-//		int dadoDragoes = Util.jogaDado();
-		int dadoPlayer = 1;
-		int dadoDragoes = 0;
 		int danoRecebido = 0;
 		ArrayList<Dragao> dragoes = new ArrayList<Dragao>();
 		for (int i = 1; i <= range; i++) {
@@ -139,8 +132,7 @@ public class Barbaro extends Personagem {
 			return Ataque.VENTO;
 		vida -= danoRecebido;
 		for (Dragao d : dragoes) {
-//			d.setVida(d.getVida() - dano / dragoes.size());
-			d.setVida(0);
+			d.setVida(d.getVida() - dano);
 		}
 		int cntMortos = 0;
 		for (Dragao d : dragoes) {
@@ -158,5 +150,10 @@ public class Barbaro extends Personagem {
 	@Override
 	public Texture getAtaque(Direcao direcao) {
 		return this.ataque;
+	}
+	
+	@Override
+	public void setRange(int range) {
+		this.range = Math.min(range, 3);
 	}
 }

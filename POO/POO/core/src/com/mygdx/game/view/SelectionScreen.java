@@ -19,16 +19,20 @@ public class SelectionScreen implements Screen {
 	private OrthographicCamera camera;
 	private Texture fundo;
 	private int lastClick, contador;
-	private Mago mago = new Mago(1, 1, 100, 1, 50);
-	private Guerreiro guerreiro = new Guerreiro(1, 1, 150, 3, 60);
-	private Arqueiro arqueiro = new Arqueiro(1, 1, 90, 25, 50);
-	private Barbaro barbaro = new Barbaro(1, 1, 150, 1, 40);
+	private Mago mago;
+	private Guerreiro guerreiro;
+	private Arqueiro arqueiro;
+	private Barbaro barbaro;
 	
 	SelectionScreen(final DungeonsAndDragons game) {
 		this.game = game;
 		fundo = new Texture("TelaSelecao.png");
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1060, 580);
+		mago = new Mago(1, 1, 100, 1, 50);
+		guerreiro = new Guerreiro(1, 1, 150, 1, 60);
+		arqueiro = new Arqueiro(1, 1, 90, 6, 50);
+		barbaro = new Barbaro(1, 1, 150, 1, 40);
 		lastClick = contador = 0;
 	}
 	

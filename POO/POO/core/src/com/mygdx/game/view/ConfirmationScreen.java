@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.DungeonsAndDragons;
+import com.mygdx.game.controller.PersonagemController;
 import com.mygdx.game.model.entities.Personagem;
 import com.mygdx.game.model.entities.personagens.Arqueiro;
 import com.mygdx.game.model.entities.personagens.Barbaro;

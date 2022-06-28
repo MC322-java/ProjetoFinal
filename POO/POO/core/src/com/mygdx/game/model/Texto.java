@@ -1,5 +1,6 @@
 package com.mygdx.game.model;
 
+import com.mygdx.game.DungeonsAndDragons;
 import com.mygdx.game.view.MapScreen;
 
 public class Texto {

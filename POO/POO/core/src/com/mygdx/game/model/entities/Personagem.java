@@ -13,6 +13,7 @@ public abstract class Personagem extends Componente {
 	// protected int estamina;
 	protected int range;
 	protected int dano; // talvez mudar o jeito que o dano eh calculado
+	protected int tipo;
 	protected Direcao direcao;
 	protected Chave chaves[] = new Chave[8];
 	protected Texture imgDireita, imgEsquerda;
@@ -22,14 +23,6 @@ public abstract class Personagem extends Componente {
 	
 	protected Personagem() {
 		super();
-		setDireita(true);
-	}
-	
-	protected Personagem(int vida, int range, int dano) {
-		super();
-		setVida(vida);
-		setRange(range);
-		setDano(dano);
 		setDireita(true);
 	}
 	
@@ -55,7 +48,7 @@ public abstract class Personagem extends Componente {
 	
 	public abstract ArrayList<Integer> area(Direcao direcao);
 	
-	public abstract Ataque atacar(Direcao direcao);
+	public abstract Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes);
 	
 	public abstract Texture getAtaque(Direcao direcao);
 	
@@ -71,9 +64,7 @@ public abstract class Personagem extends Componente {
 		return range;
 	}
 
-	public void setRange(int range) {
-		this.range = range;
-	}
+	public abstract void setRange(int range);
 
 	public int getDano() {
 		return dano;
@@ -81,6 +72,14 @@ public abstract class Personagem extends Componente {
 
 	public void setDano(int dano) {
 		this.dano = dano;
+	}
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
 	}
 
 	public Chave[] getChaves() {

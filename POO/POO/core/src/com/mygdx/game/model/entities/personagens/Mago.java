@@ -20,6 +20,7 @@ public class Mago extends Personagem {
 		this.setImgDireita(new Texture("Characters/guerreiro-direita.png"));
 		this.setImgEsquerda(new Texture("Characters/guerreiro-esquerda.png"));
 		this.setImg(this.getImgDireita());
+		this.setTipo(0);
 		this.nome = "Mago";
 		this.ataque = new Texture("ataque-mago.png");
 		setTela();
@@ -30,11 +31,12 @@ public class Mago extends Personagem {
 		setLinha(linha);
 		setColuna(coluna);
 		setVida(vida);
-		setRange(range);
+		this.setRange(range);
 		setDano(dano);
 		this.setImgDireita(new Texture("Characters/mago-direita.png"));
 		this.setImgEsquerda(new Texture("Characters/mago-esquerda.png"));
 		this.setImg(this.getImgDireita());
+		this.setTipo(0);
 		this.nome = "Mago";
 		this.ataque = new Texture("ataque-mago.png");
 		setTela();
@@ -44,11 +46,10 @@ public class Mago extends Personagem {
 	public ArrayList<Integer> area(Direcao direcao) {
 		ArrayList<Integer> vi = new ArrayList<Integer>();
 		ArrayList<Integer> vj = new ArrayList<Integer>();
-		for (int i = Math.max(1, linha - range); i <= Math.min(linha + range, 23); i++) {
-			for (int j = Math.max(1, coluna - range); j <= Math.min(coluna + range, 23); j++) {
+		for (int i = Math.max(1, linha - range); i <= Math.min(linha + range, 24); i++) {
+			for (int j = Math.max(1, coluna - range); j <= Math.min(coluna + range, 24); j++) {
 				if (TabuleiroController.tabuleiro.getBoard()[i][j].equals("p") 
 					|| TabuleiroController.tabuleiro.getBoard()[i][j].equals("C")
-					|| TabuleiroController.tabuleiro.getBoard()[i][j].charAt(0) == 'K'
 					|| TabuleiroController.tabuleiro.getBoard()[i][j].charAt(0) == 'B'
 					|| (i == this.linha && j == this.coluna))
 					continue;
@@ -66,12 +67,8 @@ public class Mago extends Personagem {
 	}
 	
 	@Override
-	public Ataque atacar(Direcao direcao) {
+	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes) {
 		Dragao drag = new Dragao();
-//		int dadoPlayer = Util.jogaDado();
-		int dadoPlayer = 1;
-//		int dadoDragoes = Util.jogaDado();
-		int dadoDragoes = 0;
 		int danoRecebido = 0;
 		ArrayList<Dragao> dragoes = new ArrayList<Dragao>();
 		for (int i = Math.max(1, linha - range); i <= Math.min(linha + range, 23); i++) {
@@ -91,8 +88,7 @@ public class Mago extends Personagem {
 			return Ataque.VENTO;
 		vida -= danoRecebido;
 		for (Dragao d : dragoes) {
-//			d.setVida(d.getVida() - dano / dragoes.size());
-			d.setVida(0);
+			d.setVida(d.getVida() - dano);
 		}
 		int cntMortos = 0;
 		for (Dragao d : dragoes) {
@@ -110,5 +106,10 @@ public class Mago extends Personagem {
 	@Override
 	public Texture getAtaque(Direcao direcao) {
 		return ataque;
+	}
+
+	@Override
+	public void setRange(int range) {
+		this.range = Math.min(range, 3);
 	}
 }
