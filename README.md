@@ -1,8 +1,10 @@
 # Projeto Final - Dungeons and Dragons
-  [Acesso-MVC : D&D](https://github.com/MC322-java/ProjetoFinal/tree/main/POO/POO/core/src/com/mygdx/game)
 
 # Descrição 
-  * O porpósito do jogo é escapar da Dungeon vivo, mas no caminho, o jogador terá que encontrar as chaves correspondentes de cada porta e enfrentar Dragões que estaram impedindo sua passagem. O jogador pode escolher entre as classes : Mago, Guerreiro, Bárbaro e Arqueiro, cujos ataques e caraterísticas inicias variam. Com um mix de sorte e habilidade o jogador pode percorrer por várias Dungeons acumulando pontuação. 
+   O porpósito do jogo é escapar da Dungeon vivo, mas no caminho, o jogador terá que encontrar as chaves correspondentes de cada porta e enfrentar Dragões que estaram impedindo sua passagem. O jogador pode escolher entre as classes : Mago, Guerreiro, Bárbaro e Arqueiro, cujos ataques e caraterísticas inicias variam. Com um mix de sorte e habilidade o jogador pode percorrer por várias Dungeons acumulando pontuação. 
+
+# Pasta do Projeto
+  * [Acesso-MVC : D&D](https://github.com/MC322-java/ProjetoFinal/tree/main/POO/POO/core/src/com/mygdx/game)
 
 
 
@@ -17,7 +19,7 @@
 # Slides do Projeto
 
 ## Slides da Prévia
-[SlidesApresentação](https://github.com/MC322-java/ProjetoFinal/files/8987255/dungeons.and.dragons-previa.pdf)
+ [SlidesApresentação](https://github.com/MC322-java/ProjetoFinal/files/8987255/dungeons.and.dragons-previa.pdf)
 
 
 ## Slides da Apresentação Final
