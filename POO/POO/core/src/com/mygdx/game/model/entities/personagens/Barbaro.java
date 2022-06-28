@@ -139,7 +139,6 @@ public class Barbaro extends Personagem {
 		}
 		int cntMortos = 0;
 		for (Dragao d : dragoes) {
-			System.out.println("O dragao em (" + d.getLinha() + ", " + d.getColuna() + ") morreu!");
 			if (d.getVida() <= 0) {
 				TabuleiroController.remove(d);
 				setScore( getScore() + 100);
