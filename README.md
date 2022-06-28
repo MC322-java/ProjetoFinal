@@ -23,6 +23,7 @@
 
 
 ## Slides da Apresentação Final
+[SlidesApresentação](https://docs.google.com/presentation/d/1J4ujRFWqHTiGbl0sQxXFE67nZM1xVLPtrip18wx18gg/edit?usp=sharing)
 
 
 # Diagramas
@@ -30,6 +31,7 @@
 ## Diagrama Geral da Arquitetura do Jogo
 
 
+![Arquitetra](https://user-images.githubusercontent.com/82724293/176232423-62e6bbbe-a8b0-4fa3-80f0-bb34f901c792.png)
 
 
 
