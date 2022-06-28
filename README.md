@@ -17,7 +17,7 @@
 # Slides do Projeto
 
 ## Slides da Prévia
-[ApresentaçãoPrévia.pdf](https://github.com/MC322-java/ProjetoFinal/files/8987255/dungeons.and.dragons-previa.pdf)
+[SlidesApresentação](https://github.com/MC322-java/ProjetoFinal/files/8987255/dungeons.and.dragons-previa.pdf)
 
 
 ## Slides da Apresentação Final
