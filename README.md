@@ -59,15 +59,24 @@ Como melhorias, podemos destacar a implementação de mais "desing patterns", o 
 
 # Destaques de Código
 
-> Escolha trechos relevantes e/ou de destaque do seu código. Apresente um recorte (você pode usar reticências para remover partes menos importantes). Veja como foi usado o highlight de Java para o código.
+> As texturas foram iniciadas nos construtores das classes, para assim , não sobrecarregar a memório do computador ao renderizar cada frame.
 
 ~~~java
-// Recorte do seu código
-public void algoInteressante(…) {
-   …
-   trechoInteressante = 100;
+public class MapScreen implements Screen {
+   ...
+   public MapScreen(final DungeonsAndDragons game, Personagem p) {
+   ...
+   fundo = new Texture("TelaFundo.png");
+   for (int i = 1; i <= 20; i++) {
+		dadosPlayer.add(new Texture("DadoPlayer/" + i + ".png"));
+		dadosDragao.add(new Texture("DadoDragao/" + i + ".png"));
+	}
+     ...
 }
 ~~~
+
+
+
 
 # Destaques de Orientação a Objetos
 > Destaque partes do código em que a orientação a objetos foi aplicada para aprimorar seu código. Por exemplo, o uso de polimorfismo para ajustar ações conforme o contexto. Sugestão de estrutura:
