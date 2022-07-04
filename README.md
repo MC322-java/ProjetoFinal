@@ -36,6 +36,7 @@
 
 ## Relatório de Evolução
 
+# Evolução e Difuculdades enfrentadas.
 > Relatório de evolução, descrevendo as evoluções do design do projeto, dificuldades enfrentadas, mudanças de rumo, melhorias e lições aprendidas. Referências aos diagramas e recortes de mudanças são bem-vindos.
 
    Para o projeto, inicialmente idealizamos apenas fazer a tela de jogo com os status do persoagem, onde o tabuleiro seria uma imagem que geramos em um site e o personagem seria apenas um quadrado no mapa. Entretanto, ao estudar mais a fundo o workframe que utiliziaríamos, o LibGDX, conseguimos ter mais noção do que conseguiríamos fazer, assim aumentando a complexidade do que tínhamos planejado, deixando o projeto mais detalhado e polído em sua versão final.
@@ -50,7 +51,11 @@
  * Imagem 2
 ![Telas](https://user-images.githubusercontent.com/82724293/177207102-0760c2a6-4c85-48bd-bdb4-7eeea85207e3.png)
 
+# Lições e Melhorias
 
+Como lição aprendida destacou-se a importância de uma organização bem fundamenteada. Como o projeto foi iniciado sem uma arquitetura totalmente definida, tinhamos apenas as ideias e alguns diagramas feitos. Com isso, tivemos dificulade na hora criar as classes e suas relações e deixar o código simples de ser seguido e organizado. Uma vez que, ao decidirmos utilizar uma Arquitetura Model-View-Controller, queriamos respeitar as comunicações entre eles, o que necessitava uma grande organização provisória.
+
+Como melhorias, podemos destacar a implementação de mais "desing patterns", o que nos retornaria uma melhor organização e maior abstração do conjunto do projeto. Além de que, um estudo mais aprofundado sobre framework nos possibilitaria criar e colocar em prática ideais que vão surgindo ao decorrer do trabalho, como animar os atques, criar mais telas de jogo, por exemplo.
 # Destaques de Código
 
 > Escolha trechos relevantes e/ou de destaque do seu código. Apresente um recorte (você pode usar reticências para remover partes menos importantes). Veja como foi usado o highlight de Java para o código.
