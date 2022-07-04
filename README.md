@@ -59,7 +59,7 @@ Como melhorias, podemos destacar a implementação de mais "desing patterns", o 
 
 # Destaques de Código
 
-> As texturas foram iniciadas nos construtores das classes, para assim , não sobrecarregar a memório do computador ao renderizar cada frame.
+As texturas foram iniciadas nos construtores das classes, para assim , não sobrecarregar a memório do computador ao renderizar cada frame.
 
 ~~~java
 public class MapScreen implements Screen {
@@ -72,6 +72,32 @@ public class MapScreen implements Screen {
 		dadosDragao.add(new Texture("DadoDragao/" + i + ".png"));
 	}
      ...
+}
+~~~
+Nas telas principal e seleção se preocupou em deixar um tempo entre um clique e outro, pois os cliques do mouse contam vários com apenas um, sendo assim um clique nao afeta a próxima tela do jogo.
+
+~~~java
+public class MainMenuScreen implements Screen {
+		...
+		private int lastClick, contador;
+		...
+
+		public MainMenuScreen(...) {...}
+		
+		@Override
+		public void render(float delta) {
+			...
+			game.batch.draw(capa, 0, 0, 1060 ,580);
+			
+			if (contador - lastClick >= 10) {
+				if (Gdx.input.isTouched()) {
+					game.setScreen(new SelectionScreen(game));
+					dispose();
+				}
+				lastClick = contador;
+			}
+			contador++;
+		}
 }
 ~~~
 
