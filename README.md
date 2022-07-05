@@ -37,13 +37,12 @@
 ## Relatório de Evolução
 
 # Evolução e Difuculdades enfrentadas.
-> Relatório de evolução, descrevendo as evoluções do design do projeto, dificuldades enfrentadas, mudanças de rumo, melhorias e lições aprendidas. Referências aos diagramas e recortes de mudanças são bem-vindos.
 
    Para o projeto, inicialmente idealizamos apenas fazer a tela de jogo com os status do persoagem, onde o tabuleiro seria uma imagem que geramos em um site e o personagem seria apenas um quadrado no mapa. Entretanto, ao estudar mais a fundo o workframe que utiliziaríamos, o LibGDX, conseguimos ter mais noção do que conseguiríamos fazer, assim aumentando a complexidade do que tínhamos planejado, deixando o projeto mais detalhado e polído em sua versão final.
    
-   Com isso, a partir de softwares gráficos como GIMP, pode-se criar uma interface melhor, com texturas para o labirinto e adicionando um inventário para o personagem, assim como, possibilitou colocar uma imagem para cada personagem. (Comparação feita na Imagem 1 ).
+   Com isso, a partir de softwares gráficos como GIMP, pode-se criar uma interface melhor, com texturas para o labirinto e adicionando um inventário para o personagem, assim como, possibilitou colocar uma imagem para cada personagem. No projeto inicial, idealizamos o personagem com Mana, que caso acabasse o personagem não conseguiria mais atacar, porém revogamos essa ideia, pois a dificuldade principal do jogo seria baseada na sorte nos dados nas batalhas contra os Dragões e não na gestão de mana que o personagem tem que ter. Com isso, substituímos essa Mana com a possibilidade do Dano e do Alcance do ataque podendo variar dependendo da sorte nos baús. (Comparação feita na Imagem 1 ).
    
-   A partir do estudo das telas do LibGDX, pode-se fazer uma sequência de telas, com uma tela de inicio e fim de jogo, e uma de seleção de personagem, podendo em todas elas fechar e voltar a tela de início novamente.(Imagem 2)
+   A partir do estudo das telas do LibGDX, pode-se fazer uma sequência de telas, com uma tela de inicio e fim de jogo, e uma de seleção de personagem, podendo em todas elas fechar e voltar a tela de início novamente. (Imagem 2)
 
  * Imagem 1
 ![Evolução](https://user-images.githubusercontent.com/82724293/177206724-49e7c51b-150c-431a-9876-c518f3bf3d35.png)
