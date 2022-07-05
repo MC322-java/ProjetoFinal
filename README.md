@@ -31,8 +31,9 @@
 
 ## Diagrama Geral da Arquitetura do Jogo
 
+![Arquitetra2](https://user-images.githubusercontent.com/82724293/177400910-825c3263-94c1-4b4b-a67a-db3a79aa9345.png)
 
-![Arquitetra](https://user-images.githubusercontent.com/82724293/176232423-62e6bbbe-a8b0-4fa3-80f0-bb34f901c792.png)
+
 
 ## Relatório de Evolução
 
