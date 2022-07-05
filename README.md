@@ -301,21 +301,4 @@ Método | Objetivo
 `getDataSource` | Retorna o caminho da fonte de dados.
 `setDataSource` | Define o caminho da fonte de dados, informado através do parâmetro `dataSource`.
 
-# Plano de Exceções
-
-## Diagrama da hierarquia de exceções
-> Elabore um diagrama com a hierarquia de exceções como detalhado a seguir.
-
-![Hierarquia Exceções](exception-hierarchy.png)
-
-## Descrição das classes de exceção
-
-> Monte uma tabela descritiva seguindo o exemplo:
-
-Classe | Descrição
------ | -----
-DivisaoInvalida | Engloba todas as exceções de divisões não aceitas.
-DivisaoInutil | Indica que a divisão por 1 é inútil.
-DivisaoNaoInteira | Indica uma divisão não inteira.
-
 
