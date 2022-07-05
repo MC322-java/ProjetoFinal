@@ -110,7 +110,8 @@ public class MainMenuScreen implements Screen {
 Utilizou-se uma classe abstrata Personagem que herda de Componente, e nessa classe apresenta dois métodos abstratos que serão sobrescritos pelas classes Mago, Guerreiro, Barbaro e Arqueiro que são possíveis personagens para se jogar. Tendo em vista que a forma como eles atacam variam e a área do seus ataques também variam, foi de suma importancia esse Polimorfismo para a execução do Ataque deles.
 
 ## Diagrama de Classes usada no destaque OO:
-![Classes](https://user-images.githubusercontent.com/82724293/177347477-b096c762-1eee-4b3b-9f83-b6dd9af808eb.jpg)
+
+![Classes](https://user-images.githubusercontent.com/82724293/177408125-e13a8597-cfa0-4fee-9cf0-746fe2da46cb.jpg)
 
 
 ## Código do Destaque OO
