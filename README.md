@@ -196,7 +196,7 @@ public void algoInteressante(…) {
 
 ### Interface Screen
 
-`<Resumo do papel da interface.>`
+Essa interface importada do LibGDX tem o papel de mostrar, criar e rendenrizar todas as telas que esta sendo mostrada no jogo : Tela de Menu, Tela de Seleção, Tela de Confirmação, Mapa, Telas Finais.
 
 ~~~java
 public interface Screen {
@@ -221,8 +221,8 @@ Método | Objetivo
 -------| --------
 `show` | `chamado quando a tela se torna a tela apresentada para o jogo`
 `render` | `chamado quando a tela se autorenderiza - delta é o tempo desde a última renderização`
-`resize` | ``
-`pause` | ``
-`resume` | ``
+`resize` | `chamado quando se quer modificar o tamanho da tela de jogo`
+`pause` | `chamado quando o se quer pausar o jogo`
+`resume` | `chamado quando se quer continuar de um estado pausado`
 `hide` | `chamado quando a tela não é mais a tela apresentada para o game`
 `dispose` | `chamada quando a tela tem que liberar todos seus recursos`
