@@ -105,10 +105,12 @@ public class MainMenuScreen implements Screen {
 
 
 # Destaques de Orientação a Objetos
-> Destaque partes do código em que a orientação a objetos foi aplicada para aprimorar seu código. Por exemplo, o uso de polimorfismo para ajustar ações conforme o contexto. Sugestão de estrutura:
+
+Utilizou-se uma classe abstrata Personagem que herda de Componente, e nessa classe apresenta dois métodos abstratos que serão sobrescritos pelas classes Mago, Guerreiro, Barbaro e Arqueiro que são possíveis personagens para se jogar. Tendo em vista que a forma como eles atacam variam e a area do seus ataques também variam, foi de suma importancia esse Polimorfismo para a excução do Ataque deles.
 
 ## Diagrama de Classes usada no destaque OO:
-> Sugere-se um diagrama de classes para o destaque, mas podem ser usados outros tipos de diagrama, conforme a necessidade.
+![Classes](https://user-images.githubusercontent.com/82724293/177347477-b096c762-1eee-4b3b-9f83-b6dd9af808eb.jpg)
+
 
 ## Código do Destaque OO
 ~~~java
