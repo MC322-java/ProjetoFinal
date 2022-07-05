@@ -112,12 +112,58 @@ public class MainMenuScreen implements Screen {
 
 ## Código do Destaque OO
 ~~~java
-// Recorte do código do pattern seguindo as mesmas diretrizes de outros destaques
-public void algoInteressante(…) {
-   …
-   trechoInteressante = 100;
+public class Componente {
+	protected int linha, coluna;
+	...
 }
 ~~~
+~~~java
+public abstract class Personagem extends Componente {
+	protected Texture imgDireita, imgEsquerda;
+	...
+	public abstract Ataque atacar(...);
+	public abstract ArrayList<Integer> area(...){...};
+	...
+}
+~~~
+~~~java
+public class Arqueiro extends Personagem {
+	...
+	@Override
+	public Ataque atacar(...) {...};
+	@Override
+	public ArrayList<Integer> area(...){...};
+}
+~~~
+~~~java
+public class Mago extends Personagem {
+	...
+	@Override
+	public Ataque atacar(...) {...};
+	@Override
+	public ArrayList<Integer> area(...){...};
+}
+~~~
+~~~java
+public class Guerreiro extends Personagem {
+	...
+	@Override
+	public Ataque atacar(...) {...};
+	@Override
+	public ArrayList<Integer> area(...){...};
+}
+~~~
+~~~java
+public class Barbaro extends Personagem {
+	...
+	@Override
+	public Ataque atacar(...) {...};
+	@Override
+	public ArrayList<Integer> area(...){...};
+}
+~~~
+
+
 
 # Destaques de Pattern
 > Destaque de patterns adotados pela equipe. Sugestão de estrutura:
