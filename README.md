@@ -40,9 +40,9 @@
 
    Para o projeto, inicialmente idealizamos apenas fazer a tela de jogo com os status do persoagem, onde o tabuleiro seria uma imagem que geramos em um site e o personagem seria apenas um quadrado no mapa. Entretanto, ao estudar mais a fundo o workframe que utiliziaríamos, o LibGDX, conseguimos ter mais noção do que conseguiríamos fazer, assim aumentando a complexidade do que tínhamos planejado, deixando o projeto mais detalhado e polído em sua versão final.
    
-   Com isso, a partir de softwares gráficos como GIMP, pode-se criar uma interface melhor, com texturas para o labirinto e adicionando um inventário para o personagem, assim como, possibilitou colocar uma imagem para cada personagem. No projeto inicial, idealizamos o personagem com Mana, que caso acabasse o personagem não conseguiria mais atacar, porém revogamos essa ideia, pois a dificuldade principal do jogo seria baseada na sorte nos dados nas batalhas contra os Dragões e não na gestão de mana que o personagem tem que ter. Com isso, substituímos essa Mana com a possibilidade do Dano e do Alcance do ataque podendo variar dependendo da sorte nos baús. (Comparação feita na Imagem 1 ).
+   Com isso, a partir de softwares gráficos como GIMP, pode-se criar uma interface melhor, com texturas para o labirinto e adicionando um inventário para o personagem,além de que, possibilitou colocar uma imagem para cada personagem. No projeto inicial, idealizamos o personagem com Mana, que caso acabasse o personagem não conseguiria mais atacar, porém revogamos essa ideia, pois a dificuldade principal do jogo seria baseada na sorte nos dados nas batalhas contra os Dragões e não na gestão de mana que o personagem tem que ter. Com isso, substituímos essa Mana com a possibilidade do Dano e do Alcance do ataque variar dependendo da sorte nos baús (Comparação feita na Imagem 1).
    
-   A partir do estudo das telas do LibGDX, pode-se fazer uma sequência de telas, com uma tela de inicio e fim de jogo, e uma de seleção de personagem, podendo em todas elas fechar e voltar a tela de início novamente. (Imagem 2)
+   A partir do estudo das telas do LibGDX, pode-se fazer uma sequência de telas, com uma tela de inicio e fim de jogo, e uma de seleção de personagem,que abre uma aba com os status iniciais deles, podendo em todas elas fechar e voltar a tela de início novamente (Imagem 2).
 
  * Imagem 1
 ![Evolução](https://user-images.githubusercontent.com/82724293/177206724-49e7c51b-150c-431a-9876-c518f3bf3d35.png)
@@ -53,13 +53,13 @@
 
 # Lições e Melhorias
 
-Como lição aprendida destacou-se a importância de uma organização bem fundamenteada. Como o projeto foi iniciado sem uma arquitetura totalmente definida, tinhamos apenas as ideias e alguns diagramas feitos. Com isso, tivemos dificulade na hora criar as classes e suas relações e deixar o código simples de ser seguido e organizado. Uma vez que, ao decidirmos utilizar uma Arquitetura Model-View-Controller, queriamos respeitar as comunicações entre eles, o que necessitava uma grande organização provisória.
+Como lição aprendida destacou-se a importância de uma organização bem fundamenteada. Como o projeto foi iniciado sem uma arquitetura totalmente definida, tinhamos apenas as ideias e alguns diagramas feitos. Com isso, tivemos dificulade na hora criar as classes e suas relações e deixar o código simples de ser seguido e organizado. Uma vez que, ao decidirmos utilizar uma Arquitetura Model-View-Controller, queriamos respeitar as comunicações entre eles, o que, necessitava uma grande organização provisória.
 
-Como melhorias, podemos destacar a implementação de mais "desing patterns", o que nos retornaria uma melhor organização e maior abstração do conjunto do projeto. Além de que, um estudo mais aprofundado sobre framework nos possibilitaria criar e colocar em prática ideais que vão surgindo ao decorrer do trabalho, como animar os atques, criar mais telas de jogo, por exemplo.
+Como melhorias, podemos destacar a implementação de mais "desing patterns", o que nos retornaria uma melhor organização e maior abstração do conjunto do projeto. Além de que, um estudo mais aprofundado sobre framework nos possibilitaria criar e colocar em prática ideais que vão surgindo ao decorrer do trabalho, como animar os ataques, criar mais telas de jogo, mais níveis, por exemplo.
 
 # Destaques de Código
 
-As texturas foram iniciadas nos construtores das classes, para assim , não sobrecarregar a memório do computador ao renderizar cada frame.
+As texturas foram iniciadas nos construtores das classes, para assim , não sobrecarregar a memória do computador ao renderizar cada frame.
 
 ~~~java
 public class MapScreen implements Screen {
@@ -74,7 +74,7 @@ public class MapScreen implements Screen {
      ...
 }
 ~~~
-Nas telas principal e seleção se preocupou em deixar um tempo entre um clique e outro, pois os cliques do mouse contam vários com apenas um, sendo assim um clique nao afeta a próxima tela do jogo.
+Nas telas principal e de seleção se preocupou em deixar um tempo entre um clique e outro, pois os cliques do mouse contam vários com apenas um, sendo assim um clique não afeta a próxima tela do jogo.
 
 ~~~java
 public class MainMenuScreen implements Screen {
@@ -106,7 +106,7 @@ public class MainMenuScreen implements Screen {
 
 # Destaques de Orientação a Objetos
 
-Utilizou-se uma classe abstrata Personagem que herda de Componente, e nessa classe apresenta dois métodos abstratos que serão sobrescritos pelas classes Mago, Guerreiro, Barbaro e Arqueiro que são possíveis personagens para se jogar. Tendo em vista que a forma como eles atacam variam e a area do seus ataques também variam, foi de suma importancia esse Polimorfismo para a excução do Ataque deles.
+Utilizou-se uma classe abstrata Personagem que herda de Componente, e nessa classe apresenta dois métodos abstratos que serão sobrescritos pelas classes Mago, Guerreiro, Barbaro e Arqueiro que são possíveis personagens para se jogar. Tendo em vista que a forma como eles atacam variam e a área do seus ataques também variam, foi de suma importancia esse Polimorfismo para a execução do Ataque deles.
 
 ## Diagrama de Classes usada no destaque OO:
 ![Classes](https://user-images.githubusercontent.com/82724293/177347477-b096c762-1eee-4b3b-9f83-b6dd9af808eb.jpg)
