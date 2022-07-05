@@ -26,15 +26,6 @@
 ## Slides da Apresentação Final
 [SlidesApresentação](https://docs.google.com/presentation/d/1J4ujRFWqHTiGbl0sQxXFE67nZM1xVLPtrip18wx18gg/edit?usp=sharing)
 
-
-# Diagramas
-
-## Diagrama Geral da Arquitetura do Jogo
-
-![Arquitetra2](https://user-images.githubusercontent.com/82724293/177400910-825c3263-94c1-4b4b-a67a-db3a79aa9345.png)
-
-
-
 ## Relatório de Evolução
 
 # Evolução e Difuculdades enfrentadas.
@@ -196,72 +187,51 @@ public void algoInteressante(…) {
 
 ## Diagrama Geral da Arquitetura do Jogo
 
-> Apresente um diagrama geral da arquitetura do jogo. O formato é livre. A escolha de um ou mais estilos arquiteturais será considerado um diferencial.
+![Arquitetra2](https://user-images.githubusercontent.com/82724293/177400910-825c3263-94c1-4b4b-a67a-db3a79aa9345.png)
 
 > Faça uma breve descrição do diagrama.
 
-## Diagrama Geral de Componentes
-
-> Se você adotou componentes de software, apresente a documentação de componentes conforme o modelo.
-
-### Exemplo 1
-
-Este é o diagrama compondo componentes para análise:
-
-![Diagrama Analise](diagrama-componentes-analise.png)
-
-### Exemplo 2
-
-Este é um diagrama inicial do projeto de jogos:
-
-![Diagrama Jogos](diagrama-componentes-jogos.png)
-
-### Exemplo 3
-
-Este é outro diagrama de um projeto de vendas:
-
-![Diagrama Vendas](diagrama-componentes-vendas.png)
-
-Para cada componente será apresentado um documento conforme o modelo a seguir:
-
-## Componente `<Nome do Componente>`
-
-> Resumo do papel do componente e serviços que ele oferece.
-
-![Componente](diagrama-componente.png)
-
-**Ficha Técnica**
-item | detalhamento
------ | -----
-Classe | `<caminho completo da classe com pacotes>` <br> Exemplo: `pt.c08componentes.s20catalog.s10ds.DataSetComponent`
-Autores | `<nome dos membros que criaram o componente>`
-Interfaces | `<listagem das interfaces do componente>`
-
-### Interfaces
-
-Interfaces associadas a esse componente:
-
-![Diagrama Interfaces](diagrama-interfaces.png)
-
-Interface agregadora do componente em Java:
-
-~~~java
-public interface IDataSet extends ITableProducer, IDataSetProperties {
-}
-~~~
 
 ## Detalhamento das Interfaces
 
-### Interface `<nome da interface>`
+### Interface Screen
 
 `<Resumo do papel da interface.>`
 
-~~~
-<Interface em Java.>
+~~~java
+public interface Screen {
+
+	/** Called when this screen becomes the current screen for a {@link Game}. */
+	public void show ();
+
+	/** Called when the screen should render itself.
+	 * @param delta The time in seconds since the last render. */
+	public void render (float delta);
+
+	/** @see ApplicationListener#resize(int, int) */
+	public void resize (int width, int height);
+
+	/** @see ApplicationListener#pause() */
+	public void pause ();
+
+	/** @see ApplicationListener#resume() */
+	public void resume ();
+
+	/** Called when this screen is no longer the current screen for a {@link Game}. */
+	public void hide ();
+
+	/** Called when this screen should release all resources. */
+	public void dispose ();
+}
 ~~~
 
 Método | Objetivo
 -------| --------
+`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
+`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
+`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
+`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
+`<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
 `<id do método em Java>` | `<objetivo do método e descrição dos parâmetros>`
 
 ## Exemplo:
