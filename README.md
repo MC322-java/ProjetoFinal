@@ -187,7 +187,8 @@ public void algoInteressante(…) {
 
 ## Diagrama Geral da Arquitetura do Jogo
 
-![Arquitetra2](https://user-images.githubusercontent.com/82724293/177400910-825c3263-94c1-4b4b-a67a-db3a79aa9345.png)
+![Arquitetra](https://user-images.githubusercontent.com/82724293/177620307-aba1a0b8-0245-4548-8213-b914b958e3c5.png)
+
 
 > Faça uma breve descrição do diagrama.
 
