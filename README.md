@@ -179,14 +179,6 @@ public void algoInteressante(…) {
 
 > Explicação de como o pattern foi adotado e quais suas vantagens, referenciando o diagrama.
 
-# Conclusões e Trabalhos Futuros
-
-Concluímos que sempre é possível fazer melhorias, como escrever exceções para o importar imagens que serão as texturas dos componentes, além de expandir o jogo, colocando mais classes de personagens, diferenciando dragões ou até mesmo criando um "Boss". Porém, como a arquitetura implementada se dedicou a manter uma forma básica sólida, a expansão de novos componentes seria simples de se fazer.
-
-Apesar de óbvia melhorias que o jogo poderia ter, ainda assim, o projeto final conseguiu superar as espectativas que tinhamos baseado no esboço inicial que que fizemos. Portanto, além de conseguirmos colocar em prática os conhecimentos de Orientação a Objetos, finalizamos um projeto que nos mostrou que esse mundo da indústria de games não é algo impossível de ser alcançado. Por mais simples que o jogo criado possa ser, já é um grande degrau e uma quebra de obstáculos que tínhamos em mente sobre esses assuntos.
-	
-Para finalizar então, um possível trabalho futuro poderia ser uma expansão do game criado, adicionando mais mecânicas baseadas no jogo que deu nome a esse projeto "Dungeons and Dragons" que é muito baseado nas esoclhas dos personagens e não em um script pronto. Sendo assim, com o aumento da complexidade do jogo, uma organização e uma arquitetura mais trabalhada em Intrefaces e Desing Patterns seriam essensial. Como por exemplo, a utilização de um Singleton para o Tabuleiro, uma vez que este poderia ser criado apenas uma vez e ser acessado apenas por um método , já que seu construtor é privado, com isso, ningúem teria mais acesso a essa parte do código, apenas o TabuleiroController , dexando as classes exercendo papéis mais específicos, aumentando a abstração da arquitetura.
-
 
 # Documentação dos Componentes
 
@@ -262,3 +254,11 @@ Método | Objetivo
 `resume` | `chamado quando se quer continuar de um estado pausado`
 `hide` | `chamado quando a tela não é mais a tela apresentada para o game`
 `dispose` | `chamada quando a tela tem que liberar todos seus recursos`
+
+# Conclusões e Trabalhos Futuros
+
+Concluímos que sempre é possível fazer melhorias, como escrever exceções para o importar imagens que serão as texturas dos componentes, além de expandir o jogo, colocando mais classes de personagens, diferenciando dragões ou até mesmo criando um "Boss". Porém, como a arquitetura implementada se dedicou a manter uma forma básica sólida, a expansão de novos componentes seria simples de se fazer.
+
+Apesar de óbvia melhorias que o jogo poderia ter, ainda assim, o projeto final conseguiu superar as espectativas que tinhamos baseado no esboço inicial que que fizemos. Portanto, além de conseguirmos colocar em prática os conhecimentos de Orientação a Objetos, finalizamos um projeto que nos mostrou que esse mundo da indústria de games não é algo impossível de ser alcançado. Por mais simples que o jogo criado possa ser, já é um grande degrau e uma quebra de obstáculos que tínhamos em mente sobre esses assuntos.
+	
+Para finalizar então, um possível trabalho futuro poderia ser uma expansão do game criado, adicionando mais mecânicas baseadas no jogo que deu nome a esse projeto "Dungeons and Dragons" que é muito baseado nas esoclhas dos personagens e não em um script pronto. Sendo assim, com o aumento da complexidade do jogo, uma organização e uma arquitetura mais trabalhada em Intrefaces e Desing Patterns seriam essensial. Como por exemplo, a utilização de um Singleton para o Tabuleiro, uma vez que este poderia ser criado apenas uma vez e ser acessado apenas por um método , já que seu construtor é privado, com isso, ningúem teria mais acesso a essa parte do código, apenas o TabuleiroController , dexando as classes exercendo papéis mais específicos, aumentando a abstração da arquitetura.
