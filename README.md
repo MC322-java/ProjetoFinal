@@ -95,7 +95,7 @@ public class MainMenuScreen implements Screen {
 
 # Destaques de Orientação a Objetos
 
-Utilizou-se uma classe abstrata Personagem que herda de Componente, e nessa classe apresenta dois métodos abstratos que serão sobrescritos pelas classes Mago, Guerreiro, Barbaro e Arqueiro que são possíveis personagens para se jogar. Tendo em vista que a forma como eles atacam variam e a área do seus ataques também variam, foi de suma importancia esse Polimorfismo para a execução do Ataque deles.
+Utilizou-se uma classe abstrata Personagem que herda de Componente, e nessa classe apresenta dois métodos abstratos que serão sobrescritos pelas classes Mago, Guerreiro, Barbaro e Arqueiro que são possíveis personagens para se jogar. Tendo em vista que a forma como eles atacam variam e a área do seus ataques também variam, foi de suma importancia esse Polimorfismo para a execução do Ataque deles. Sendo assim , o PersonagemController apenas chama esses métodos sem sabeer qual personagem que se trata.
 
 ## Diagrama de Classes usada no destaque OO:
 
@@ -103,15 +103,9 @@ Utilizou-se uma classe abstrata Personagem que herda de Componente, e nessa clas
 
 
 ## Código do Destaque OO
-~~~java
-public class Componente {
-	protected int linha, coluna;
-	...
-}
-~~~
+
 ~~~java
 public abstract class Personagem extends Componente {
-	protected Texture imgDireita, imgEsquerda;
 	...
 	public abstract Ataque atacar(...);
 	public abstract ArrayList<Integer> area(...){...};
@@ -154,21 +148,32 @@ public class Barbaro extends Personagem {
 	public ArrayList<Integer> area(...){...};
 }
 ~~~
+Polimorfismo usado em :
+~~~java
+public class PersonagemController {
+	public static Personagem p;
+	
+	public static Ataque atacar(...) {
+		return p.atacar(...);
+	}
+	
+	public static ArrayList<Integer> area(...) {
+		return p.area(...);
+	}
+	...
+}
+~~~
 
 
 
 # Destaques de Pattern
-> Destaque de patterns adotados pela equipe. Sugestão de estrutura:
 
 ## Diagrama do Pattern
 > Diagrama do pattern dentro do contexto da aplicação.
 
 ## Código do Pattern
 ~~~java
-// Recorte do código do pattern seguindo as mesmas diretrizes de outros destaques
-public void algoInteressante(…) {
-   …
-   trechoInteressante = 100;
+
 }
 ~~~
 
