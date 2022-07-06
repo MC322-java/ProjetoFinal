@@ -30,11 +30,11 @@
 
 # Evolução e Difuculdades enfrentadas.
 
-   Para o projeto, inicialmente idealizamos apenas fazer a tela de jogo com os status do persoagem, onde o tabuleiro seria uma imagem que geramos em um site e o personagem seria apenas um quadrado no mapa. Entretanto, ao estudar mais a fundo o workframe que utiliziaríamos, o LibGDX, conseguimos ter mais noção do que conseguiríamos fazer, assim aumentando a complexidade do que tínhamos planejado, deixando o projeto mais detalhado e polído em sua versão final.
-   
+	
+A primeira dificuldade enfrentada foi a familiarização com um interface gráfica, tendo em vista que não tínhamos muito conhecimneto a respeito. Escolhemos para esse projeto o LibGDX que tem uma associação ampla com projetos em Java, além das informações de fácil acesso para seu uso. Sendo assim, contextualizando o projeto inicial, idealizamos apenas fazer a tela de jogo com os status do persoagem, onde o tabuleiro seria uma imagem que geramos em um site e o personagem seria apenas um quadrado no mapa. Entretanto, ao estudar mais a fundo o workframe que utiliziaríamos conseguimos ter mais noção do que conseguiríamos fazer, assim aumentando a complexidade do que tínhamos planejado, deixando o projeto mais detalhado e polído em sua versão final.
    Com isso, a partir de softwares gráficos como GIMP, pode-se criar uma interface melhor, com texturas para o labirinto e adicionando um inventário para o personagem,além de que, possibilitou colocar uma imagem para cada personagem. No projeto inicial, idealizamos o personagem com Mana, que caso acabasse o personagem não conseguiria mais atacar, porém revogamos essa ideia, pois a dificuldade principal do jogo seria baseada na sorte nos dados nas batalhas contra os Dragões e não na gestão de mana que o personagem tem que ter. Com isso, substituímos essa Mana com a possibilidade do Dano e do Alcance do ataque variar dependendo da sorte nos baús (Comparação feita na Imagem 1).
-   
    A partir do estudo das telas do LibGDX, pode-se fazer uma sequência de telas, com uma tela de inicio e fim de jogo, e uma de seleção de personagem,que abre uma aba com os status iniciais deles, podendo em todas elas fechar e voltar a tela de início novamente (Imagem 2).
+Além desses desafio da abordagem gráfica , por estarmos implementando um Modelo do tipo Model-View-Controller, presou-se por ao máximo estabelecer essas relações intermediadas pelos controladores ao acessar o model ou o view. Com isso, devido ao tempo de entrega priorizou-se as mecânicas do jogo a uma maior complexidade, tendo em vista que a base deve ser forte para uma possível expansão  facilitada pela arquitetura elaborada.
 
  * Imagem 1
 ![Evolução](https://user-images.githubusercontent.com/82724293/177206724-49e7c51b-150c-431a-9876-c518f3bf3d35.png)
@@ -45,7 +45,7 @@
 
 # Lições e Melhorias
 
-Como lição aprendida destacou-se a importância de uma organização bem fundamenteada. Como o projeto foi iniciado sem uma arquitetura totalmente definida, tinhamos apenas as ideias e alguns diagramas feitos. Com isso, tivemos dificulade na hora criar as classes e suas relações e deixar o código simples de ser seguido e organizado. Uma vez que, ao decidirmos utilizar uma Arquitetura Model-View-Controller, queriamos respeitar as comunicações entre eles, o que, necessitava uma grande organização provisória.
+Como lição aprendida destacou-se a importância de uma organização bem fundamenteada. Como o projeto foi iniciado sem uma arquitetura totalmente definida, tinhamos apenas as ideias e alguns diagramas feitos. Com isso, tivemos dificulade na hora criar as classes e suas relações e deixar o código simples de ser seguido e organizado. Uma vez que, ao decidirmos utilizar uma Arquitetura Model-View-Controller, queriamos respeitar as comunicações entre eles, o que necessitava uma grande organização provisória.
 
 Como melhorias, podemos destacar a implementação de mais "desing patterns", o que nos retornaria uma melhor organização e maior abstração do conjunto do projeto. Além de que, um estudo mais aprofundado sobre framework nos possibilitaria criar e colocar em prática ideais que vão surgindo ao decorrer do trabalho, como animar os ataques, criar mais telas de jogo, mais níveis, por exemplo.
 
@@ -179,7 +179,10 @@ public void algoInteressante(…) {
 
 # Conclusões e Trabalhos Futuros
 
-> Apresente aqui as conclusões do projeto e propostas de trabalho futuro. Esta é a oportunidade em que você pode indicar melhorias no projeto a partir de lições aprendidas e conhecimentos adquiridos durante a realização do projeto, mas que não puderam ser implementadas por questões de tempo. Por exemplo, há design patterns aprendidos no final do curso que provavelmente não puderam ser implementados no jogo -- este é o espaço onde você pode apresentar como aplicaria o pattern no futuro para melhorar o jogo.
+Concluímos que sempre é possível fazer melhorias, como escrever exceções para o importar imagens que serão as texturas dos componentes, além de expandir o jogo, colocando mais classes de personagens, diferenciando dragões ou até mesmo criando um "Boss". Porém, como a arquitetura implementada se dedicou a manter uma forma básica sólida, a expansão de novos componentes seria simples de se fazer.
+	Apesar de óbvia melhorias que o jogo poderia ter, ainda assim, o projeto final conseguiu superar as espectativas que tinhamos baseado no esboço inicial que que fizemos. Portanto, além de conseguirmos colocar em prática os conhecimentos de Orientação a Objetos, finalizamos um projeto que nos mostrou que esse mundo da indústria de games não é algo impossível de ser alcançado. Por mais simples que o jogo criado possa ser, já é um grande degrau e uma quebra de obstáculos que tínhamos em mente sobre esses assuntos.
+	Para finalizar então, um possível trabalho futuro poderia ser uma expansão do game criado, adicionando mais mecânicas baseadas no jogo que deu nome a esse projeto "Dungeons and Dragons" que é muito baseado nas esoclhas dos personagens e não em um script pronto. Sendo assim, com o aumento da complexidade do jogo, uma organização e uma arquitetura mais trabalhada em Intrefaces e Desing Patterns seriam essensial. Como por exemplo, a utilização de um Singleton para o Tabuleiro, uma vez que este poderia ser criado apenas uma vez e ser acessado apenas por um método , já que seu construtor é privado, com isso, ningúem teria mais acesso a essa parte do código, apenas o TabuleiroController , dexando as classes exercendo papéis mais específicos, aumentando a abstração da arquitetura.
+
 
 # Documentação dos Componentes
 
@@ -191,6 +194,34 @@ public void algoInteressante(…) {
 
 
 > Faça uma breve descrição do diagrama.
+
+### Componente Model:
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Pacote | `src/com/mygdx/game/model`
+Autores |  `Andreas Cisi e Luiz Fernando`
+Interfaces | `-`
+
+### Componente View:
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Pacote | `src/com/mygdx/game/view`
+Autores |  `Andreas Cisi e Luiz Fernando`
+Interfaces | `Screen - LibGDX`
+
+### Componente Controller:
+
+
+**Ficha Técnica**
+item | detalhamento
+----- | -----
+Pacote | `src/com/mymdx/game/controller`
+Autores | `Andreas Cisi e Luiz Fernando`
+Interfaces | `-`
 
 
 ## Detalhamento das Interfaces
