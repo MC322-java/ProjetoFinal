@@ -173,7 +173,77 @@ public class PersonagemController {
 
 ## Código do Pattern
 ~~~java
+package com.mygdx.game.controller;
 
+import java.util.ArrayList;
+
+import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.model.*;
+import com.mygdx.game.model.entities.*;
+import com.mygdx.game.model.entities.objetos.Chave;
+import com.mygdx.game.model.util.*;
+import com.mygdx.game.view.MapScreen;
+
+public class MainController {
+	
+	public static Direcao direcao;
+	public static Ataque ataqueInfo;
+	
+	public static void setPersonagem(int id, int linha, int coluna, int vida, int range, int dano) {
+		PersonagemController.setP(id, linha, coluna, vida, range, dano);
+	}
+	
+	public static void move(int linha, int coluna) {
+		PersonagemController.move(linha, coluna);
+	}
+	
+	...
+	
+	public static void initTabuleiro() {
+		TabuleiroController.tabuleiro = new Tabuleiro();
+	}
+	
+	public static int jogaDado() {
+		return Util.jogaDado();
+	}
+	
+	public static void setMensagem(String mensagem) {
+		Texto.setMensagem(mensagem);
+	}
+	
+	public static String getMensagem() {
+		return Texto.getMensagem();
+	}
+	
+	...
+	
+	public static Direcao getDirecao() {
+		return direcao;
+	}
+	
+	public static void drawMap(MapScreen mapScreen, int squareSize) {
+		TabuleiroController.drawMap(mapScreen, squareSize);
+	}
+	
+	public static void plot(MapScreen mapScreen, Texture t, int squareSize) {
+		TabuleiroController.plot(mapScreen, t, PersonagemController.getLinha(), PersonagemController.getColuna(),
+				squareSize, squareSize);
+	}
+	
+	public static void atacar(int idx1, int idx2) {
+		ataqueInfo = PersonagemController.atacar(direcao, idx1, idx2);
+	}
+	
+	public static Ataque getAtaqueInfo() {
+		return ataqueInfo;
+	}
+	
+	...
+	
+	public static boolean acertou() {
+		return ataqueInfo == Ataque.ACERTOU;
+	}
+	...
 }
 ~~~
 
