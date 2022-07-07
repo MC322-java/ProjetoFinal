@@ -256,7 +256,7 @@ public class MainController {
 
 ## Diagrama Geral da Arquitetura do Jogo
 
-![Arquitetra](https://user-images.githubusercontent.com/82724293/177620307-aba1a0b8-0245-4548-8213-b914b958e3c5.png)
+![Arquitetra](https://user-images.githubusercontent.com/82724293/177673847-427c7558-e6b9-449c-8cf6-8962616eee43.png)
 
 
 > Faça uma breve descrição do diagrama.
