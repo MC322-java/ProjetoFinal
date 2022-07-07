@@ -168,10 +168,10 @@ public class PersonagemController {
 
 # Destaques de Pattern
 
-## Diagrama do Pattern
+## Diagrama do Pattern Facade
 > Diagrama do pattern dentro do contexto da aplicação.
 
-## Código do Pattern
+## Código do Pattern Facade
 ~~~java
 package com.mygdx.game.controller;
 
