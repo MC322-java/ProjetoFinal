@@ -197,7 +197,7 @@ public class PersonagemController {
 item | detalhamento
 ----- | -----
 Pacote | `src/com/mygdx/game/model`
-Autores |  `Andreas Cisi e Luiz Fernando`
+Autores |  `Andreas Cisi e Fernando Morato`
 Interfaces | `-`
 
 ### Componente View:
@@ -206,7 +206,7 @@ Interfaces | `-`
 item | detalhamento
 ----- | -----
 Pacote | `src/com/mygdx/game/view`
-Autores |  `Andreas Cisi e Luiz Fernando`
+Autores |  `Andreas Cisi e Fernando Morato`
 Interfaces | `Screen - LibGDX`
 
 ### Componente Controller:
@@ -216,7 +216,7 @@ Interfaces | `Screen - LibGDX`
 item | detalhamento
 ----- | -----
 Pacote | `src/com/mymdx/game/controller`
-Autores | `Andreas Cisi e Luiz Fernando`
+Autores | `Andreas Cisi e Fernando Morato`
 Interfaces | `-`
 
 
