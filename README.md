@@ -169,21 +169,11 @@ public class PersonagemController {
 # Destaques de Pattern
 
 ## Diagrama do Pattern Facade
-> Diagrama do pattern dentro do contexto da aplicação.
+
+![Facade](https://user-images.githubusercontent.com/82724293/177807681-939ce08b-74b5-4ba7-b20d-e0d34e60b62c.png)
 
 ## Código do Pattern Facade
 ~~~java
-package com.mygdx.game.controller;
-
-import java.util.ArrayList;
-
-import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.game.model.*;
-import com.mygdx.game.model.entities.*;
-import com.mygdx.game.model.entities.objetos.Chave;
-import com.mygdx.game.model.util.*;
-import com.mygdx.game.view.MapScreen;
-
 public class MainController {
 	
 	public static Direcao direcao;
