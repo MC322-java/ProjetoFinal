@@ -230,7 +230,7 @@ public class MainController {
 }
 ~~~
 
-> Explicação de como o pattern foi adotado e quais suas vantagens, referenciando o diagrama.
+Escolhemos implementação o design pattern Facade por conta dos vários objetos utilizados no jogo. A utilização do Facade permite que a comunicação com vários sub-setores do código tenha uma complexidade muito menor do que sem sua presença. Além disso, uma das nossas propostas iniciais foi aceitar a expansão do número de componentes do jogo (personagens, dragões e bônus) e isso é algo que, com a adição do Facade, é muito simples de ser feito. Outra coisa de nosso interesse é o princípio de Acoplamento fraco (do inglês Loose coupling) que consiste em seperar os componentes de modo que cada um deles tenha pouca informação a respeito de algum outro componente. Em conclusão, decidimos utilizar este padrão por sua alta flexibilidade.
 
 
 # Documentação dos Componentes
