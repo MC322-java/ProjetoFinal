@@ -1,7 +1,7 @@
 # Projeto Final - Dungeons and Dragons
 
 # Descrição 
-   O propósito do jogo é escapar da Dungeon vivo, mas no caminho, o jogador terá que encontrar as chaves correspondentes de cada porta e enfrentar Dragões que estaram impedindo sua passagem, e causaram dano caso o ataque do jogador falhe. O jogador pode escolher entre as classes : Mago, Guerreiro, Bárbaro e Arqueiro, cujos ataques e caraterísticas inicias variam. Com um mix de sorte ao jogar os dados e habilidade o jogador pode percorrer por várias Dungeons acumulando pontuação. 
+   O propósito do jogo é escapar da Dungeon vivo, mas no caminho, o jogador terá que encontrar as chaves correspondentes de cada porta e enfrentar Dragões que estarão impedindo sua passagem, e causarão dano caso o ataque do jogador falhe. O jogador pode escolher entre as classes : Mago, Guerreiro, Bárbaro e Arqueiro, cujos ataques e caraterísticas iniciais variam. Com um mix de sorte ao jogar os dados e habilidade o jogador pode percorrer várias Dungeons acumulando pontuação. 
 
 
 # Equipe
@@ -242,7 +242,12 @@ Escolhemos implementação o design pattern Facade por conta dos vários objetos
 ![Arquitetra](https://user-images.githubusercontent.com/82724293/177673847-427c7558-e6b9-449c-8cf6-8962616eee43.png)
 
 
-> Faça uma breve descrição do diagrama.
+Nos optamos por aplicar a arquitetura MVC (Model, View, Controller). Esta arquitetura consiste em particionar o código em 3 setores:
+* Model - Essa partição é responsável por armazenar os dados do usuário e os objetos da aplicação.
+* View - Essa partição guarda a interface de usuário (UI). Ela também é responsável por lidar com a comunicação com o usuário do sistema.
+* Controller - Essa partição faz a ponte entre as duas anteriores. Ela é encarregada de transformar os pedidos do usuário em suas respectivas respostas.
+
+Como pode ser observado na imagem acima, todos os objetos do jogo estão na área Model, todas as telas estão na área View e por fim, na área Controller estão os controladores criados para lidar com o transito de informações.
 
 ### Componente Model:
 
@@ -312,6 +317,6 @@ Método | Objetivo
 
 Concluímos que sempre é possível fazer melhorias, como escrever exceções para o importar imagens que serão as texturas dos componentes, além de expandir o jogo, colocando mais classes de personagens, diferenciando dragões ou até mesmo criando um "Boss". Porém, como a arquitetura implementada se dedicou a manter uma forma básica sólida, a expansão de novos componentes seria simples de se fazer.
 
-Apesar de óbvia melhorias que o jogo poderia ter, ainda assim, o projeto final conseguiu superar as espectativas que tinhamos baseado no esboço inicial que que fizemos. Portanto, além de conseguirmos colocar em prática os conhecimentos de Orientação a Objetos, finalizamos um projeto que nos mostrou que esse mundo da indústria de games não é algo impossível de ser alcançado. Por mais simples que o jogo criado possa ser, já é um grande degrau e uma quebra de obstáculos que tínhamos em mente sobre esses assuntos.
+Apesar de óbvia melhorias que o jogo poderia ter, ainda assim, o projeto final conseguiu superar as espectativas que tínhamos baseado no esboço inicial que fizemos. Portanto, além de conseguirmos colocar em prática os conhecimentos de Orientação a Objetos, finalizamos um projeto que nos mostrou que esse mundo da indústria de games não é algo impossível de ser alcançado. Por mais simples que o jogo criado possa ser, já é um grande degrau e uma quebra de obstáculos que tínhamos em mente sobre esses assuntos.
 	
-Para finalizar então, um possível trabalho futuro poderia ser uma expansão do game criado, adicionando mais mecânicas baseadas no jogo que deu nome a esse projeto "Dungeons and Dragons" que é muito baseado nas esoclhas dos personagens e não em um script pronto. Sendo assim, com o aumento da complexidade do jogo, uma organização e uma arquitetura mais trabalhada em Intrefaces e Desing Patterns seriam essensial. Como por exemplo, a utilização de um Singleton para o Tabuleiro, uma vez que este poderia ser criado apenas uma vez e ser acessado apenas por um método , já que seu construtor é privado, com isso, ningúem teria mais acesso a essa parte do código, apenas o TabuleiroController , dexando as classes exercendo papéis mais específicos, aumentando a abstração da arquitetura.
+Para finalizar então, um possível trabalho futuro poderia ser uma expansão do game criado, adicionando mais mecânicas baseadas no jogo que deu nome a esse projeto "Dungeons and Dragons" que é muito baseado nas escolhas dos personagens e não em um script pronto. Sendo assim, com o aumento da complexidade do jogo, uma organização e uma arquitetura mais trabalhada em Intrefaces e Desing Patterns seriam essenciais. Como por exemplo, a utilização de um Singleton para o Tabuleiro, uma vez que este poderia ser criado apenas uma vez e ser acessado apenas por um método, já que seu construtor é privado, com isso, ningúem teria mais acesso a essa parte do código, apenas o TabuleiroController, dexando as classes exercendo papéis mais específicos, aumentando a abstração da arquitetura.
