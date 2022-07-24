@@ -1,7 +1,6 @@
 package com.mygdx.game.model.entities;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.game.controller.TabuleiroController;
 
 public class Componente {
 	protected int linha;

@@ -6,12 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.DungeonsAndDragons;
-import com.mygdx.game.controller.PersonagemController;
-import com.mygdx.game.model.entities.Personagem;
-import com.mygdx.game.model.entities.personagens.Arqueiro;
-import com.mygdx.game.model.entities.personagens.Barbaro;
-import com.mygdx.game.model.entities.personagens.Guerreiro;
-import com.mygdx.game.model.entities.personagens.Mago;
+import com.mygdx.game.controller.MainController;
 
 public class ConfirmationScreen implements Screen {
 
@@ -19,15 +14,13 @@ public class ConfirmationScreen implements Screen {
 	private OrthographicCamera camera;
 	private Texture fundo;
 	private int lastClick, contador;
-	private Personagem p;
 	
-	ConfirmationScreen(final DungeonsAndDragons game, Texture t, Personagem p) {
+	ConfirmationScreen(final DungeonsAndDragons game) {
 		this.game = game;
-		fundo = t;
+		fundo = MainController.getConfirmationScreen();
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1060, 580);
 		lastClick = contador = 0;
-		this.p = p;
 	}
 	
 	@Override
@@ -49,7 +42,7 @@ public class ConfirmationScreen implements Screen {
 				game.setScreen(new SelectionScreen(game));
 			}
 			if (39 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 43 * 20 && 6 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 7 * 20 && Gdx.input.isTouched()) {
-				game.setScreen(new MapScreen(game, p));
+				game.setScreen(new MapScreen(game));
 			}
 			lastClick = contador;
 		}

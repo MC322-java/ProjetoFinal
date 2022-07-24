@@ -1,19 +1,16 @@
 package com.mygdx.game.model;
 
-import com.mygdx.game.DungeonsAndDragons;
-import com.mygdx.game.view.MapScreen;
-
 public class Texto {
 	
-	private String mensagem = "";
+	private static String mensagem = "";
 	
 	public Texto() {}
 
-	public String getMensagem() {
+	public static String getMensagem() {
 		return mensagem;
 	}
 
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
+	public static void setMensagem(String msg) {
+		mensagem = msg;
 	}
 }

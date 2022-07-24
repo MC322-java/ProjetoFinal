@@ -35,8 +35,6 @@ public class MainMenuScreen implements Screen {
 			game.batch.setProjectionMatrix(camera.combined);
 			game.batch.begin();
 			game.batch.draw(capa, 0, 0, 1060 ,580);
-//			game.font.draw(game.batch, "Tap anywhere to begin!", 100, 100);
-//			game.batch.draw(new Texture("dragao.png"), 0, 0);
 			game.batch.end();
 			if (contador - lastClick >= 10) {
 				if (Gdx.input.isTouched()) {
@@ -50,12 +48,10 @@ public class MainMenuScreen implements Screen {
 
 		@Override
 		public void resize(int width, int height) {
-//			viewport.update(width, height);
 		}
 
 		@Override
 		public void show() {
-
 		}
 
 		@Override

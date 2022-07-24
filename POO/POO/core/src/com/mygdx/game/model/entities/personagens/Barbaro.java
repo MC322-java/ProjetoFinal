@@ -3,13 +3,11 @@ package com.mygdx.game.model.entities.personagens;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.game.DungeonsAndDragons;
+import com.mygdx.game.controller.MainController;
 import com.mygdx.game.controller.TabuleiroController;
-import com.mygdx.game.model.Texto;
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Dragao;
 import com.mygdx.game.model.entities.Personagem;
-import com.mygdx.game.model.entities.Tabuleiro;
 import com.mygdx.game.model.util.*;
 
 public class Barbaro extends Personagem {
@@ -79,7 +77,7 @@ public class Barbaro extends Personagem {
 	}
 
 	@Override
-	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes, Texto texto) {
+	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes) {
 		Dragao drag = new Dragao();
 		int danoRecebido = 0;
 		ArrayList<Dragao> dragoes = new ArrayList<Dragao>();
@@ -137,19 +135,17 @@ public class Barbaro extends Personagem {
 		for (Dragao d : dragoes) {
 			d.setVida(d.getVida() - dano);
 		}
-		int cntMortos = 0;
 		for (Dragao d : dragoes) {
 			if (d.getVida() <= 0) {
 				TabuleiroController.remove(d);
-				setScore( getScore() + 100);
-				cntMortos++;
+				setScore(getScore() + 100);
 			}
 		}
 		if (danoRecebido > 0) {
-			texto.setMensagem("Voce recebeu " + danoRecebido + " de dano");
+			MainController.setMensagem("Voce recebeu " + danoRecebido + " de dano");
 			return Ataque.FALHOU;
 		}
-		texto.setMensagem("Voce causou" + dano + " de dano");
+		MainController.setMensagem("Voce causou " + dano + " de dano");
 		return Ataque.ACERTOU;
 	}
 

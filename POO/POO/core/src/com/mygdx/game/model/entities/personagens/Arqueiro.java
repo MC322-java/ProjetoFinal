@@ -3,14 +3,12 @@ package com.mygdx.game.model.entities.personagens;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.game.DungeonsAndDragons;
+import com.mygdx.game.controller.MainController;
 import com.mygdx.game.controller.ObjetoController;
 import com.mygdx.game.controller.TabuleiroController;
-import com.mygdx.game.model.Texto;
 import com.mygdx.game.model.entities.Componente;
 import com.mygdx.game.model.entities.Dragao;
 import com.mygdx.game.model.entities.Personagem;
-import com.mygdx.game.model.entities.Tabuleiro;
 import com.mygdx.game.model.util.*;
 
 public class Arqueiro extends Personagem {
@@ -115,7 +113,7 @@ public class Arqueiro extends Personagem {
 	}
 
 	@Override
-	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes, Texto texto) {
+	public Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes) {
 		Dragao dragao = null;
 		if (direcao == Direcao.DIREITA) {
 			for (int i = Math.min(coluna + 1, 24); i <= Math.min(coluna + range, 24); i++) {
@@ -167,7 +165,7 @@ public class Arqueiro extends Personagem {
 		}
 		if (dadoPlayer < dadoDragoes) {
 			setVida(getVida() - dragao.getDano());
-			texto.setMensagem("Voce recebeu " + dragao.getDano() + " de dano");
+			MainController.setMensagem("Voce recebeu " + dragao.getDano() + " de dano");
 			return Ataque.FALHOU;
 		}
 		dragao.setVida(dragao.getVida() - dano);
@@ -175,7 +173,7 @@ public class Arqueiro extends Personagem {
 			ObjetoController.removeObject(dragao.getLinha(), dragao.getColuna());
 			setScore( getScore() + 100);
 		}
-		texto.setMensagem("Voce causou " + dano + " de dano");
+		MainController.setMensagem("Voce causou " + dano + " de dano");
 		return Ataque.ACERTOU;
 	}
 

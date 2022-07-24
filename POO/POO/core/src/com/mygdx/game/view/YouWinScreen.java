@@ -7,8 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.DungeonsAndDragons;
-import com.mygdx.game.controller.TabuleiroController;
-import com.mygdx.game.model.entities.Tabuleiro;
+import com.mygdx.game.controller.MainController;
 
 public class YouWinScreen implements Screen {
 
@@ -38,7 +37,7 @@ public class YouWinScreen implements Screen {
 		game.batch.begin();
 		game.batch.draw(fundo, 0, 0, 1060 ,580);
 		if (51 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 53 * 20 && 27 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 29 * 20 && Gdx.input.isTouched()) {
-			TabuleiroController.tabuleiro = new Tabuleiro();
+			MainController.initTabuleiro();
 			game.setScreen(new MainMenuScreen(game));
 		}
 		game.batch.end();

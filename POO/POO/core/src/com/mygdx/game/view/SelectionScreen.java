@@ -6,12 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.DungeonsAndDragons;
-import com.mygdx.game.controller.TabuleiroController;
-import com.mygdx.game.model.entities.Tabuleiro;
-import com.mygdx.game.model.entities.personagens.Arqueiro;
-import com.mygdx.game.model.entities.personagens.Barbaro;
-import com.mygdx.game.model.entities.personagens.Guerreiro;
-import com.mygdx.game.model.entities.personagens.Mago;
+import com.mygdx.game.controller.MainController;
 
 public class SelectionScreen implements Screen {
 
@@ -19,20 +14,12 @@ public class SelectionScreen implements Screen {
 	private OrthographicCamera camera;
 	private Texture fundo;
 	private int lastClick, contador;
-	private Mago mago;
-	private Guerreiro guerreiro;
-	private Arqueiro arqueiro;
-	private Barbaro barbaro;
 	
 	SelectionScreen(final DungeonsAndDragons game) {
 		this.game = game;
 		fundo = new Texture("TelaSelecao.png");
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1060, 580);
-		mago = new Mago(1, 1, 100, 1, 50);
-		guerreiro = new Guerreiro(1, 1, 150, 1, 60);
-		arqueiro = new Arqueiro(1, 1, 90, 6, 50);
-		barbaro = new Barbaro(1, 1, 150, 1, 40);
 		lastClick = contador = 0;
 	}
 	
@@ -52,20 +39,24 @@ public class SelectionScreen implements Screen {
 		game.batch.draw(fundo, 0, 0, 1060, 580);
 		if (contador - lastClick >= 10) {
 			if (6 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 14 * 20 && 8 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 17 * 20 && Gdx.input.isTouched()) {
-				game.setScreen(new ConfirmationScreen(game, mago.getTela(), mago));
+				MainController.setPersonagem(0, 1, 1, 100, 1, 50);
+				game.setScreen(new ConfirmationScreen(game));
 				dispose();
 			} else if (17 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 25 * 20 && 8 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 17 * 20 && Gdx.input.isTouched()) {
-				game.setScreen(new ConfirmationScreen(game, guerreiro.getTela(), guerreiro));
+				MainController.setPersonagem(1, 1, 1, 150, 1, 60);
+				game.setScreen(new ConfirmationScreen(game));
 				dispose();
 			}else if (28 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 36 * 20 && 8 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 17 * 20 && Gdx.input.isTouched()) {
-				game.setScreen(new ConfirmationScreen(game, arqueiro.getTela(), arqueiro));
+				MainController.setPersonagem(2, 1, 1, 90, 6, 50);
+				game.setScreen(new ConfirmationScreen(game));
 				dispose();
 			}else if (39 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 49 * 20 && 8 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 17 * 20 && Gdx.input.isTouched()) {
-				game.setScreen(new ConfirmationScreen(game, barbaro.getTela(), barbaro));
+				MainController.setPersonagem(3, 1, 1, 150, 1, 40);
+				game.setScreen(new ConfirmationScreen(game));
 				dispose();
 			}
 			if (51 * 20 <= Gdx.input.getX() && Gdx.input.getX() <= 53 * 20 && 27 * 20 <= 580 - Gdx.input.getY() && 580 - Gdx.input.getY() <= 29 * 20 && Gdx.input.isTouched()) {
-				TabuleiroController.tabuleiro = new Tabuleiro();
+				MainController.initTabuleiro();
 				game.setScreen(new MainMenuScreen(game));
 			}
 			lastClick = contador;

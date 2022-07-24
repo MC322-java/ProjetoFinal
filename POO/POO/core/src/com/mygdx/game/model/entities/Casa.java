@@ -1,7 +1,5 @@
 package com.mygdx.game.model.entities;
 
-import java.util.*;
-
 public class Casa {
 	private Tabuleiro tabuleiro;
 	private Componente componente;

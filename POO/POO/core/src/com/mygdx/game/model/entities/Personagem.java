@@ -3,8 +3,6 @@ package com.mygdx.game.model.entities;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.game.DungeonsAndDragons;
-import com.mygdx.game.model.Texto;
 import com.mygdx.game.model.entities.objetos.Chave;
 import com.mygdx.game.model.util.Ataque;
 import com.mygdx.game.model.util.Direcao;
@@ -50,7 +48,7 @@ public abstract class Personagem extends Componente {
 	
 	public abstract ArrayList<Integer> area(Direcao direcao);
 	
-	public abstract Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes, Texto texto);
+	public abstract Ataque atacar(Direcao direcao, int dadoPlayer, int dadoDragoes);
 	
 	public abstract Texture getAtaque(Direcao direcao);
 	

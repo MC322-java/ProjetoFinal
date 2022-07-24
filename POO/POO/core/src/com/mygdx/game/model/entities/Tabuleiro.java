@@ -1,7 +1,5 @@
 package com.mygdx.game.model.entities;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.game.controller.PersonagemController;
 import com.mygdx.game.model.entities.objetos.Bau;
 import com.mygdx.game.model.entities.objetos.Chave;
 import com.mygdx.game.model.entities.objetos.Porta;
